@@ -1,0 +1,221 @@
+.category-highlight {
+  color: #888;
+  background-color: #f5eec2;
+  font-size: 20px;
+  font-weight: bold; }
+  .category-highlight a:hover {
+    color: #943d24;
+    cursor: pointer; }
+
+.display-product-content {
+  padding: 50px 0 50px 0; }
+
+a {
+  text-decoration: none;
+  color: #888; }
+
+.disabled {
+  display: none; }
+
+.enabled {
+  display: block; }
+
+section.filter {
+  width: 30%;
+  padding: 0 10px; }
+  section.filter .filter-by-category {
+    padding-bottom: 10px; }
+    section.filter .filter-by-category .wrap {
+      border: 1px solid #333;
+      padding: 5px; }
+      section.filter .filter-by-category .wrap a:hover {
+        color: #943d24;
+        cursor: pointer; }
+      section.filter .filter-by-category .wrap .clothes {
+        padding-bottom: 5px; }
+        section.filter .filter-by-category .wrap .clothes .title {
+          padding-left: 5px; }
+      section.filter .filter-by-category .wrap .electronics {
+        padding-bottom: 5px; }
+        section.filter .filter-by-category .wrap .electronics .title {
+          padding-left: 5px; }
+      section.filter .filter-by-category .wrap .jewelry .title {
+        padding-left: 5px; }
+  section.filter .filters {
+    color: #888; }
+    section.filter .filters .wrap {
+      border: 1px solid #333;
+      padding: 5px; }
+      section.filter .filters .wrap .title p {
+        padding-left: 5px; }
+      section.filter .filters .wrap .sort .title {
+        font-size: 22px;
+        font-weight: bold;
+        font-style: oblique; }
+      section.filter .filters .wrap .sort.sort-by-price-range select {
+        background: #f5eec2; }
+        section.filter .filters .wrap .sort.sort-by-price-range select option {
+          background: #f5eec2; }
+          section.filter .filters .wrap .sort.sort-by-price-range select option:hover {
+            background: #943d24;
+            color: white; }
+
+section.display {
+  width: 70%;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #1f1c1c; }
+  section.display .display-which-is-selected {
+    padding-bottom: 30px; }
+    section.display .display-which-is-selected .wrap {
+      padding: 10px 5px;
+      background: #f5f0d5; }
+      section.display .display-which-is-selected .wrap p {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 0; }
+  section.display .how-many-products .wrap {
+    background: #f5f0d5;
+    padding: 10px 0; }
+    section.display .how-many-products .wrap .list-or-grid {
+      width: 10%; }
+      section.display .how-many-products .wrap .list-or-grid .grid-img {
+        width: 40%; }
+      section.display .how-many-products .wrap .list-or-grid .list-img {
+        width: 40%; }
+    section.display .how-many-products .wrap .anounce-products {
+      width: 50%;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-left: 15px; }
+      section.display .how-many-products .wrap .anounce-products p {
+        margin-bottom: 0;
+        font-size: 20px;
+        font-style: italic; }
+        section.display .how-many-products .wrap .anounce-products p span {
+          font-weight: bold; }
+    section.display .how-many-products .wrap .sort-by {
+      width: 40%;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+      padding-right: 10px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      section.display .how-many-products .wrap .sort-by p {
+        margin-bottom: 0;
+        font-weight: bold;
+        padding-right: 10px; }
+  section.display .display-products {
+    padding-top: 30px; }
+    section.display .display-products .wrap .item {
+      width: calc(25% - 20px);
+      padding-bottom: 40px;
+      position: relative;
+      margin-right: 20px; }
+      section.display .display-products .wrap .item:hover {
+        cursor: pointer; }
+        section.display .display-products .wrap .item:hover .item-hover span {
+          opacity: 1;
+          -webkit-transform: translateY(-64%);
+          -ms-transform: translateY(-64%);
+          transform: translateY(-64%);
+          -webkit-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          transition: all ease 0.5s; }
+        section.display .display-products .wrap .item:hover .item-width .product-description .product-price-and-discount {
+          opacity: 0;
+          -webkit-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          transition: all ease 0.5s; }
+      section.display .display-products .wrap .item .item-width .img {
+        height: 235px;
+        padding: 0px 30px;
+        margin-bottom: 10px; }
+        section.display .display-products .wrap .item .item-width .img img {
+          height: inherit; }
+      section.display .display-products .wrap .item .item-width .product-description {
+        background-color: #f5f0d5;
+        height: 120px;
+        border-radius: 5px;
+        padding: 0px 10px;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        color: #888; }
+        section.display .display-products .wrap .item .item-width .product-description h3 {
+          font-size: 16px;
+          text-align: center;
+          width: 100%; }
+        section.display .display-products .wrap .item .item-width .product-description .product-price-and-discount {
+          width: 100%;
+          text-align: center;
+          font-weight: bold;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: end;
+          -ms-flex-align: end;
+          align-items: flex-end;
+          opacity: 1;
+          -webkit-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          transition: all ease 0.5s; }
+          section.display .display-products .wrap .item .item-width .product-description .product-price-and-discount span {
+            padding: 0 10px; }
+          section.display .display-products .wrap .item .item-width .product-description .product-price-and-discount .regular-price {
+            text-decoration: line-through;
+            color: #943d24; }
+          section.display .display-products .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
+            background: red;
+            border: 1px solid red;
+            font-size: 22px;
+            padding: 0px 5px;
+            border-radius: 5px;
+            color: white; }
+          section.display .display-products .wrap .item .item-width .product-description .product-price-and-discount .price {
+            -webkit-animation: priceDisplay ease-in-out 3s infinite;
+            animation: priceDisplay ease-in-out 3s infinite;
+            font-size: 20px;
+            color: #e60073; }
+      section.display .display-products .wrap .item .item-hover {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0%);
+        -ms-transform: translate(-50%, 0%);
+        transform: translate(-50%, 0%);
+        z-index: 2;
+        width: 70%; }
+        section.display .display-products .wrap .item .item-hover span {
+          background-color: #f0a04b;
+          color: white;
+          font-weight: bold;
+          padding: 5px 10px;
+          font-size: 20px;
+          display: block;
+          border-radius: 5px;
+          opacity: 0;
+          -webkit-transition: all ease 0.5s;
+          -o-transition: all ease 0.5s;
+          transition: all ease 0.5s;
+          text-align: center; }
+    section.display .display-products .clothes-pagination {
+      padding-top: 20px; }
+      section.display .display-products .clothes-pagination ul.pagination li a {
+        color: #333;
+        border: none;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: #f5f0d5; }
+        section.display .display-products .clothes-pagination ul.pagination li a:hover {
+          cursor: pointer; }
+        section.display .display-products .clothes-pagination ul.pagination li a.active {
+          background-color: #343a40;
+          color: white;
+          pointer-events: none;
+          cursor: default; }

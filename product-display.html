@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display Page</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
+    <link rel="stylesheet" href="assets/css/productdisplay.css">
+    <script src = "assets/js/jquery-3.6.0.js"></script>
+    <script src = "assets/js/boostrap.min.js"></script>
+    <script src = "assets/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <header>
+        <div class = "header-top">
+            <div class = "desktop-w desktop-md d-flex">
+                <div class = "col-xxl-4 left">
+                    <div class = "wrap d-flex">
+                            <div class="language-change dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="languageChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ENGLISH
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="languageChange">
+                                    <li><a class="dropdown-item">ENGLISH</a></li>
+                                    <li><a class="dropdown-item">VIETNAMESE</a></li>
+                                </ul>
+                            </div>
+                            <div class="currency-change dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="currencyChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD &dollar;
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="currencyChange">
+                                    <li><a class="dropdown-item">USD</a></li>
+                                    <li><a class="dropdown-item">VND</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 center">
+                    <div class = "wrap">
+                        <span class = "overlock">Welcome to MysticT Store</span>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 right">
+                    <div class = "wrap d-flex">
+                        <div class = "item search-icon">
+                            <div class = "img">
+                                <img src="assets/images/search.svg" alt="search">
+                            </div>
+                        </div>
+                        <div class = "item user-login">
+                            <div class = "img">
+                                <img src="assets/images/person-fill.svg" alt="user-login">                  
+                            </div>
+                        </div>
+                        <div class = "item go-to-cart">
+                            <div class = "img">
+                                <img src="assets/images/cart.svg" alt="go-to-cart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "header-banner">
+            <div class = "desktop-w desktop-md d-flex">
+                <div class = "col-xxl-4 left">
+                    <div class = "item-width d-flex">
+                        <div class = "img">
+                            <a href="">
+                                <img src="assets/images/email.svg" alt="email-icon">
+                            </a>
+                        </div>
+                        <div class = "email-contact">
+                            <a href="">
+                                <h2 class = "overlock">EMAIL ME: </h2>
+                            </a>
+                            <p class = "email">ng.manhtruong1996@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 center">
+                    <div class = "img">
+                        <a href="index.html">
+                            <img src="assets/images/mystict-logo.png" alt="MysticT-shop-logo">
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class = "col-xxl-4 right">
+                    <div class = "item-width d-flex">
+                        <div class = "img">
+                            <a href="">
+                                <img src="assets/images/contact-us.svg" alt="contact-icon">
+                            </a>
+                        </div>
+                        <div class = "phone-contact">
+                            <a href="">
+                                <h2 class = "overlock">CALL ME: </h2>
+                            </a>    
+                            <p class = "phone-number">0934686272</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class = "menu-navigator">
+        <div class = "desktop-w desktop-md d-flex">
+            <div class = "menu d-flex justify-content-center" id="_desktop_top_menu">
+                <ul class="nav">
+                    <li class="category">
+                        <a class="dropdown-item dropdown-toggle clothes-toggle" aria-current="page"
+                        role="button" id="clothes" data-bs-toggle="dropdown" aria-expanded="false">Clothes</a>
+                            <ul class="dropdown-menu clothes-dropdown" aria-labelledby="clothes">
+                                <li><a class="dropdown-item" id = "womenClothing">Women's clothing</a></li>
+                                <li><a class="dropdown-item" id = "menClothing">Men's clothing</a></li>
+                            </ul>
+                    </li>
+                    <li class="category">
+                        <a class="dropdown-item" id = "electronics">Electronics</a>
+                    </li>
+                    <li class="category">
+                        <a class="dropdown-item" id = "jewelry">Jewelry</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class = "display-product-content">
+        <div class = "desktop-w desktop-md d-flex flex-wrap">
+            <section class = "filter">
+                <div class = "filter-by-category">
+                    <div class = "wrap">
+                        <div class = "clothes">
+                            <div class = "title category-highlight overlock">
+                                <a id = "displayClothes">CLOTHES</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a id = "displayMenClothing">MEN</a>
+                                </li>
+                                <li>
+                                    <a id = "displayWomenClothing">WOMEN</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class = "electronics">
+                            <div class = "title category-highlight overlock">
+                                <a id = "displayElectronics">ELECTRONICS</a>
+                            </div>
+                        </div>
+                        <div class = "jewelry">
+                            <div class = "title category-highlight overlock">
+                                <a id = "displayJewelry">JEWELRY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "filters">
+                    <div class = "wrap">
+                        <div class = "title">
+                            <div class = "category-highlight overlock">
+                                <p>FILTER BY</p>
+                            </div>
+                        </div>
+                        <div class = "sort sort-by-price">
+                            <div class = "title overlock">
+                                BY PRICE
+                            </div>
+                            <label><input name="sort" value="1" class="sort" type="checkbox" id = "priceAsc"> PRICE ASCENDING </label><br>
+                            <label><input name="sort" value="2" class="sort" type="checkbox" id = "priceDes"> PRICE DESCENDING </label><br>
+                        </div>
+                        <div class = "sort sort-by-price-range">
+                            <div class = "title overlock">
+                                BY RANGE
+                            </div>
+                            <select name="filter" class = "selectFilter filterForAll enabled">
+                                <option value="0">...</option>
+                                <option value="1">PRICE &lt;= &dollar;10</option>
+                                <option value="2">PRICE BETWEEN &dollar;10 AND &dollar;50</option>
+                                <option value="3">PRICE BETWEEN &dollar;50 AND &dollar;100</option>
+                                <option value="4">PRICE BETWEEN &dollar;100 AND &dollar;200</option>
+                                <option value="5">PRICE &gt;= &dollar;200</option>
+                            </select>
+                            <!-- <select name="filterClothes" class = "selectFilter filterForClothes disabled">
+                                <option value="0">...</option>
+                                <option value="1">PRICE &lt;= 5 Mil</option>
+                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
+                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
+                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
+                                <option value="5">PRICE &gt;= 40 Mil</option>
+                            </select>
+                            <select name="filterElectronics" class = "selectFilter filterForElectronics disabled">
+                                <option value="0">...</option>
+                                <option value="1">PRICE &lt;= 5 Mil</option>
+                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
+                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
+                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
+                                <option value="5">PRICE &gt;= 40 Mil</option>
+                            </select>
+                            <select name="filterJewelry" class = "selectFilter filterForJewelry disabled">
+                                <option value="0">...</option>
+                                <option value="1">PRICE &lt;= 5 Mil</option>
+                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
+                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
+                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
+                                <option value="5">PRICE &gt;= 40 Mil</option>
+                            </select> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class = "display">
+                <div class = "display-which-is-selected">
+                    <div class = "wrap">
+                        <p class = "overlock">HOME - <span id = "whichIsSelected">ALL PRODUCTS</span></p>
+                    </div>
+                </div>
+                <div class = "promotion-banner">
+                </div>
+                <div class = "how-many-products">
+                    <div class = "wrap d-flex flex-wrap">
+                        <div class = "list-or-grid d-flex flex-wrap justify-content-evenly">
+                            <div class = "grid-img">
+                                <a id = "gridSort"><img src="assets/images/grid.svg" alt="grid-sort"></a>
+                            </div>  
+                            <div class = "list-img">
+                                <a id = "listSort"><img src="assets/images/list.svg" alt="list-sort"></a>
+                            </div>
+                        </div>
+                        <div class = "anounce-products d-flex text-center">
+                            <p>THERE ARE <span id = "productAnounce">20</span> PRODUCTS.</p>
+                        </div>
+                        <div class = "sort-by d-flex flex-wrap">
+                            <p>Sort by: </p>
+                            <select name="filterByName" class = "filterByName">
+                                <option value="0">...</option>
+                                <option value="1">NAME ASCENDING</option>
+                                <option value="2">NAME DESCENDING</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class = "display-products">
+                    <div class = "wrap d-flex flex-wrap" id = "displayProducts">
+
+                    </div>
+                    <div class = "clothes-pagination">
+
+                        <nav aria-label="Page navigation ">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item">
+                                    <a class="page-link previous" id = "clothesPrevios" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item"><a class="page-link active" id = "firstSection">1</a></li>
+                                <li class="page-item"><a class="page-link" id = "secondSection">2</a></li>
+                                <li class="page-item"><a class="page-link" id = "thirdSection">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next" id = "clothesNext" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class = "parallex-footer">
+            <div class = "desktop-w desktop-md">
+                <div class = "wrap d-flex flex-wrap">
+                    <div class = "block block1 d-flex flex-wrap">
+                        <div class = "my-brand">
+                            <div class = "img">
+                                <img src="assets/images/mystict-logo.png" alt="shop-logo">
+                            </div>
+                            <div class = "shop-info text-center">
+                                <p>This is a dummy text i made to fill out this field. Don't worry about this text. Haha.</p>
+                            </div>
+                        </div>
+                        <div class = "sign-up-email">
+                            <div class = "sign-up-title">
+                                <h3>Get latest products and discounts here!</h3>
+                            </div>
+                            <div class = "sign-up-wrapper d-flex flex-wrap">
+                                <input class = "email-submit" name= "email" type="text" placeholder="Your email address here">
+                                <div class = "sign-up-button d-flex">
+                                    <input type="submit" value = "Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "block block2 d-flex flex-wrap">
+                        <div class = "part part1">
+                            <div class = "wrap d-flex flex-wrap justify-content-between">
+                                <div class = "item free-shipping">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/paper-airplane.svg" alt="free-ship-image">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">FREE SHIP</h4>
+                                        <p>Over $99</p>
+                                    </div>
+                                </div>
+                                <div class = "item gift-voucher">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/gift.svg" alt="gift-voucher">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">GIFT VOUCHER</h4>
+                                        <p>Free gifts & vouchers</p>
+                                    </div>
+                                </div>
+                                <div class = "item support">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/24-7-support.png" alt="support-24-7">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">SUPPORT</h4>
+                                        <p>Support 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "part part2">
+                            <div class = "wrap d-flex flex-wrap justify-content-evenly">
+                                <div class = "item item1">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">PRODUCTS</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">Prices</a>
+                                        </li>
+                                        <li>
+                                            <a href="">New products</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Best sales</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class = "item item2">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">MY COMPANY</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">About Me</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Secure Payment</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Sitemap</a>
+                                        </li>
+                                        <li>
+                                            <a href="">My Account</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class = "item item3">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">Store Information</h4>
+                                    </div>
+                                    <ul>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon location">
+                                                <img src="assets/images/geo-fill.svg" alt="location-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <p>Demo Shop</p>
+                                            </div>
+                                        </li>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon telephone">
+                                                <img src="assets/images/telephone-fill.svg" alt="phone-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <p>+84 934 686 272</p>
+                                            </div>
+                                        </li>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon email">
+                                                <img src="assets/images/mailbox2.svg" alt="mailbox-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <a href="">ng.manhtruong1996@gmail.com</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src = "assets/js/productDisplay.js"></script>
+    <script>
+        //WHEN DOCUMENT IS READY WAIT 0.5 SEC TO SHOW
+        $(document).ready(function(){
+            setTimeout(function(){
+                $(".loader-wrapper").fadeOut("slow");
+            }, 500);
+        })
+
+        // $(window).on("load",function(){
+        //    $(".loader-wrapper").fadeOut("slow");
+        // });
+
+        //SETTINGS FOR BANNER CAROUSEL TO WAIT 2SEC TO CHANGE THE IMAGE
+        const bannerCarousel = document.querySelector("#bannerCarousel");
+        var carousel = new bootstrap.Carousel(bannerCarousel,{
+            interval: 2000
+        });
+
+        //parallex electronic controls
+        elecParallex = document.querySelector('#electronicsParallex');
+        //parallex clothes controls
+        clothParallex = document.querySelector('#clothesParallex');
+
+        //SCROLL EVENT
+        window.addEventListener('scroll',function(){
+            var value = window.scrollY;
+            //console.log(value);
+            //parallex clothes controls
+            if (value > 1800 && value < 3350){
+                let val = (150 - (value-1950)*0.16);
+                if (val > -150){
+                    clothParallex.style.backgroundPositionY = "" + val + "%";
+                }
+            }
+            //parallex electronic controls
+            if (value > 2800 && value < 4450){
+                let val = (150 - (value-2950)*0.13);
+                if (val > -150){
+                    elecParallex.style.backgroundPositionY = "" + val + "%";
+                }
+            }
+        });
+
+        //STICKY NAVIGATION BAR
+        window.onscroll = function() {
+            stickyNavbar();
+        };
+        var navbar = document.querySelector(".menu-navigator");
+        var sticky = navbar.offsetTop + 146;
+
+        function stickyNavbar(){
+            if (window.pageYOffset >= sticky){
+                navbar.classList.add('sticky');
+            } else{
+                navbar.classList.remove('sticky');
+            }
+        }
+    </script>
+</body>
+</html>
