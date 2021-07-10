@@ -22,7 +22,11 @@ a{
     display: none;
 }
 .enabled{
-    display: block;
+    display: block !important;
+}
+.highlighted{
+    color: #943d24;
+    font-size: 22px;
 }
 section{
     &.filter{
@@ -52,6 +56,12 @@ section{
                     }
                 }
                 .jewelry{
+                    padding-bottom: 5px;
+                    .title{
+                        padding-left: 5px;
+                    }
+                }
+                .all-products{
                     .title{
                         padding-left: 5px;
                     }
@@ -83,6 +93,21 @@ section{
                                     background:#943d24;
                                     color: white;
                                 }
+                            }
+                        }
+                    }
+                    &.sort-by-name{
+                        a.search{
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                        .list-group-anchor{
+                        }
+                        li.list-group-item{
+                            &:hover{
+                                background-color:lightgoldenrodyellow;
+                                cursor: pointer;
                             }
                         }
                     }
@@ -184,6 +209,9 @@ section{
                             height: 235px;
                             padding: 0px 30px;
                             margin-bottom: 10px;
+                            a{
+                                height: inherit;
+                            }
                             img{
                                 height: inherit;
                                 

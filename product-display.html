@@ -10,8 +10,9 @@
     <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="assets/css/productdisplay.css">
     <script src = "assets/js/jquery-3.6.0.js"></script>
-    <script src = "assets/js/boostrap.min.js"></script>
+    <script src = "assets/js/bootstrap.min.js"></script>
     <script src = "assets/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
     <div class="loader-wrapper">
@@ -61,7 +62,52 @@
                         </div>
                         <div class = "item go-to-cart">
                             <div class = "img">
-                                <img src="assets/images/cart.svg" alt="go-to-cart">
+                                <a id = "cartContainer">
+                                    <img src="assets/images/cart.svg" alt="go-to-cart">
+                                </a>
+                            </div>
+                            <div class = "product-container disabled" id = "cartDisplay">
+                                <div class = "products">
+                                    <ul class = "list-group" id = "cartList">
+                                        <!-- <li class = "list-group-item">
+                                            <div class = "img">   
+                                                    <img src="assets/images/person.svg" alt="">
+                                            </div>
+                                            <div class = "description">
+                                                <div class = "title">
+                                                    <p><span id = "howMuch">2</span>x <span id= "productTitle">THIS IS TITLE</span></p>
+                                                </div>
+                                                <div class = "price">
+                                                    <p>99$</p>
+                                                </div>
+                                            </div>
+                                            <div class = "delete-item">
+                                                <div class = "img">
+                                                    <a href="">
+                                                        <img src="assets/images/trash.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li> -->
+                                    </ul>
+                                    <div class = "sum-and-taxes list-group-item" id ="sumAndTaxes">
+                                        <!-- <div class = "info d-flex flex-wrap">
+                                            <div class = "col left text-start">
+                                                <p>Total Products:</p>
+                                                <p>Total Shipping:</p>
+                                                <p class = "total">Total</p>
+                                            </div>
+                                            <div class = "col right text-end">
+                                                <p id = "totalProducts">3</p>
+                                                <p id = "totalShipping">&dollar;5</p>
+                                                <p class = "total" id = "totalPrice">&dollar;15</p>
+                                            </div>
+                                        </div>
+                                        <div class = "checkout">
+                                            <button class="btn btn-outline-success">CHECK OUT</button>
+                                        </div> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,6 +176,9 @@
                     <li class="category">
                         <a class="dropdown-item" id = "jewelry">Jewelry</a>
                     </li>
+                    <li class="category">
+                        <a class="dropdown-item" href = "product-display.html">Products Page</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -141,25 +190,30 @@
                     <div class = "wrap">
                         <div class = "clothes">
                             <div class = "title category-highlight overlock">
-                                <a id = "displayClothes">CLOTHES</a>
+                                <a class = "categoryHighlights" id = "displayClothes">CLOTHES</a>
                             </div>
                             <ul>
                                 <li>
-                                    <a id = "displayMenClothing">MEN</a>
+                                    <a class = "categoryHighlights" id = "displayMenClothing">MEN</a>
                                 </li>
                                 <li>
-                                    <a id = "displayWomenClothing">WOMEN</a>
+                                    <a class = "categoryHighlights" id = "displayWomenClothing">WOMEN</a>
                                 </li>
                             </ul>
                         </div>
                         <div class = "electronics">
                             <div class = "title category-highlight overlock">
-                                <a id = "displayElectronics">ELECTRONICS</a>
+                                <a class = "categoryHighlights" id = "displayElectronics">ELECTRONICS</a>
                             </div>
                         </div>
                         <div class = "jewelry">
                             <div class = "title category-highlight overlock">
-                                <a id = "displayJewelry">JEWELRY</a>
+                                <a class = "categoryHighlights" id = "displayJewelry">JEWELRY</a>
+                            </div>
+                        </div>
+                        <div class = "all-products">
+                            <div class = "title category-highlight overlock">
+                                <a class = "categoryHighlights highlighted" id = "displayAllProducts">ALL PRODUCTS</a>
                             </div>
                         </div>
                     </div>
@@ -190,30 +244,22 @@
                                 <option value="4">PRICE BETWEEN &dollar;100 AND &dollar;200</option>
                                 <option value="5">PRICE &gt;= &dollar;200</option>
                             </select>
-                            <!-- <select name="filterClothes" class = "selectFilter filterForClothes disabled">
-                                <option value="0">...</option>
-                                <option value="1">PRICE &lt;= 5 Mil</option>
-                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
-                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
-                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
-                                <option value="5">PRICE &gt;= 40 Mil</option>
-                            </select>
-                            <select name="filterElectronics" class = "selectFilter filterForElectronics disabled">
-                                <option value="0">...</option>
-                                <option value="1">PRICE &lt;= 5 Mil</option>
-                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
-                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
-                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
-                                <option value="5">PRICE &gt;= 40 Mil</option>
-                            </select>
-                            <select name="filterJewelry" class = "selectFilter filterForJewelry disabled">
-                                <option value="0">...</option>
-                                <option value="1">PRICE &lt;= 5 Mil</option>
-                                <option value="2">PRICE BETWEEN 5 Mil AND 10 Mil</option>
-                                <option value="3">PRICE BETWEEN 10 Mil AND 20 Mil</option>
-                                <option value="4">PRICE BETWEEN 20 Mil AND 40 Mil</option>
-                                <option value="5">PRICE &gt;= 40 Mil</option>
-                            </select> -->
+                        </div>
+                        <div class ="sort sort-by-name">
+                            <div class = "title overlock">
+                                BY NAME
+                            </div>
+                            <div class="input-group rounded">
+                                <input type="search" class="form-control rounded" id="searchForProducts" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon" name = "search"
+                                autofocus autocomplete = "off"/>
+                                <span class="input-group-text border-0" id="search-addon">
+                                  <a class = "search"><img src="assets/images/search.svg" alt="search-icon"></a>
+                                </span>
+                            </div>
+                            <div class = "list-group-anchor">
+                                <ul class = "list-group" id = "list"></ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -420,14 +466,46 @@
             </div>
         </div>
     </footer>
-    <script src = "assets/js/productDisplay.js"></script>
+
+    <!-- Modal -->
+    <div class="modal card fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class = "back">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
+                        <a id = "backToProducts">Back to all Products</a>
+                    </h5>
+                </div>
+                <div class = "img-heart">
+                    <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="product-info">
+                    <div class="photo" id = "modalPhoto">
+                        
+                    </div>
+                    <div class="description" id = "modalDescription">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
     <script>
         //WHEN DOCUMENT IS READY WAIT 0.5 SEC TO SHOW
-        $(document).ready(function(){
-            setTimeout(function(){
-                $(".loader-wrapper").fadeOut("slow");
-            }, 500);
-        })
+        // $(document).ready(function(){
+        //     setTimeout(function(){
+        //         $(".loader-wrapper").fadeOut("slow");
+        //     }, 500);
+        // })
 
         // $(window).on("load",function(){
         //    $(".loader-wrapper").fadeOut("slow");
@@ -479,5 +557,8 @@
             }
         }
     </script>
+
+    <script src = "assets/js/productDisplay.js"></script>
+    <script src = "assets/js/cart.js"></script>
 </body>
 </html>

@@ -4,7 +4,8 @@ var products = [];
 var filteredProduct = [];
 var displayItems = [];
 
-var clothesIsTrue, menClothesIsTrue, womenClothesIsTrue, electronicsIsTrue, jewelryIsTrue;
+//Create value for event on index page
+var clothesIsTrue, menClothesIsTrue, womenClothesIsTrue, electronicsIsTrue, jewelryIsTrue, productAnounce;
 
 
 //FECTCH FROM FAKEAPISTORE
@@ -26,7 +27,7 @@ function initData(data){
 
 
     //LOADING ABOVE THIS LINE
-    //$(".loader-wrapper").fadeOut("slow");
+    $(".loader-wrapper").fadeOut("slow");
 }
 
 //RANDOM INTERGER TO MAKE DISCOUNT PERCENT
@@ -49,17 +50,19 @@ function display(arr){
         <div class = "item item${count++}">
             <div class = "item-width">
                 <div class = "img">
-                    <img src="${item.image}" alt="${item.title}">
+                    <a class = "img-click" onClick = "productClicked(${item.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <img src="${item.image}" alt="${item.title}">
+                    </a>
                 </div>
                 <div class = "product-description d-flex">
                     <h3 class = "product-title overlock">${item.title}</h3>
                     <div class = "product-price-and-discount">
-                        <span class = "price">${item.price} USD</span>
+                        <span class = "price">&dollar; ${item.price}</span>
                     </div>
                 </div>
             </div>
             <div class = "item-hover">
-                <span class = "overlock" data-id = "${item.id}">ADD TO CART</span>
+                <span class = "overlock" data-id = "${item.id}" onClick = "addToCart(${item.id})">ADD TO CART</span>
             </div>
         </div>`;
     }
@@ -69,13 +72,16 @@ function display(arr){
 function displayProducts(arr){
     var displayItems = [];
     let itemsCount = 1;
+    productAnounce = 0;
     for (product of arr){
+        productAnounce++;
         if(itemsCount < 9){
             itemsCount++;
             displayItems.push(product);
         }
     }
     display(displayItems);
+    $('#productAnounce').html(productAnounce);
 }
 
 function displayProductsPage2(arr){
@@ -104,61 +110,83 @@ function displayProductsPage3(arr){
 
 function displayClothes(arr){
     filteredProduct = [];
+    productAnounce = 0;
     let re = /(clothing)/;
     for (product of arr){
         if(re.test(product.category)){
+            productAnounce++;
             filteredProduct.push(product);
         }
     }
     displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
 }
 function displayMenClothing(arr){
     filteredProduct = [];
+    productAnounce = 0;
     let re = /(^men)/;
     for (product of arr){
         if(re.test(product.category)){
+            productAnounce++;
             filteredProduct.push(product);
         }
     }
     displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
 }
 
 function displayWomenClothing(arr){
     filteredProduct = [];
+    productAnounce = 0;
     let re = /(^women)/;
     for (product of arr){
         if(re.test(product.category)){
+            productAnounce++;
             filteredProduct.push(product);
         }
     }
     displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
 }
 
 function displayElectronics(arr){
     filteredProduct = [];
+    productAnounce = 0;
     let re = /(electronics)/;
     for (product of arr){
         if(re.test(product.category)){
+            productAnounce++;
             filteredProduct.push(product);
         }
     }
     displayProducts(filteredProduct);
     //display(filteredProduct);
+    $('#productAnounce').html(productAnounce);
 }
 
 function displayJewelry(arr){
     filteredProduct = [];
-    let itemsCount = 1;
     let re = /(jewel)/;
+    productAnounce = 0;
     for (product of arr){
         if(re.test(product.category)){
-            if(itemsCount < 9){
-                itemsCount++;
-                filteredProduct.push(product);
-            }
+            productAnounce++;
+            filteredProduct.push(product);
         }
     }
-    display(filteredProduct);
+    displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
+}
+
+function displayAllProducts(arr){
+    productAnounce = 0;
+    filteredProduct = [];
+    for (product of arr){
+        productAnounce++;
+        filteredProduct.push(product);
+    }
+    displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
 }
 
 $('#displayClothes').click(function(e){
@@ -182,6 +210,11 @@ $('#displayElectronics').click(function(e){
 $('#displayJewelry').click(function(e){
     e.preventDefault();
     displayJewelry(products);
+});
+
+$('#displayAllProducts').click(function(e){
+    e.preventDefault();
+    displayAllProducts(products);
 });
 
 
@@ -285,38 +318,20 @@ document.querySelector('select[name="filter"]').addEventListener('change', funct
 //SET VALUE TO PRODUCTS PAGINATION
 var whichPageIsIt = 1;
 
-//CONTROLS PAGINATION
-// aTagClothes = document.querySelectorAll('ul.pagination li a.page-link');
-// aTagClothes.forEach(function(event){
-//     event.addEventListener('click', function(){
-//         document.querySelectorAll('ul.pagination li a.page-link').forEach(element => {
-//             element.classList.remove('active');
-//         });
-//         if(!event.classList.contains('previous') || !event.classList.contains('next')){
-//             if (whichPageIsIt == 1){
-//                 document.querySelector('ul.pagination li a#secondSection').classList.remove('active');
-//                 document.querySelector('ul.pagination li a#firstSection').classList.add('active');
-//                 document.querySelector('ul.pagination li a#thirdSection').classList.remove('active');
-//             } 
-//             if(whichPageIsIt == 2){
-//                 document.querySelector('ul.pagination li a#secondSection').classList.add('active');
-//                 document.querySelector('ul.pagination li a#firstSection').classList.remove('active');
-//                 document.querySelector('ul.pagination li a#thirdSection').classList.remove('active');
-//             }  
-//             if(whichPageIsIt == 3){
-//                 document.querySelector('ul.pagination li a#thirdSection').classList.add('active');
-//                 document.querySelector('ul.pagination li a#secondSection').classList.remove('active');
-//                 document.querySelector('ul.pagination li a#firstSection').classList.remove('active');
-//             }  
-//         }
-//     });
-// });
 
-
-
+//CONTROL HIGHLIGHT OF category-highlight filter
+aTagHighlight = document.querySelectorAll('a.categoryHighlights');
+aTagHighlight.forEach(function(event){
+    event.addEventListener('click', function(){
+        document.querySelectorAll('a.categoryHighlights').forEach(function(e){
+            e.classList.remove('highlighted');
+        });
+        event.classList.add('highlighted');
+    });
+});
 
 //PAGINATION FOR DISPLAY PRODUCT
-$('#firstSection').on('click', function(){
+$('#firstSection').on('click', firstSectionFunction = function(){
     displayProducts(filteredProduct);
     whichPageIsIt = 1;
     document.querySelector('ul.pagination li a#firstSection').classList.add('active');
@@ -324,7 +339,7 @@ $('#firstSection').on('click', function(){
     document.querySelector('ul.pagination li a#thirdSection').classList.remove('active');
 });
 
-$('#secondSection').on('click',function(){
+$('#secondSection').on('click',secondSectionFunction = function(){
     displayProductsPage2(filteredProduct);
     whichPageIsIt = 2;
     document.querySelector('ul.pagination li a#secondSection').classList.add('active');
@@ -332,7 +347,7 @@ $('#secondSection').on('click',function(){
     document.querySelector('ul.pagination li a#thirdSection').classList.remove('active');
 });
 
-$('#thirdSection').on('click', function(){
+$('#thirdSection').on('click', thirdSectionFunction = function(){
     displayProductsPage3(filteredProduct);
     whichPageIsIt = 3;
     document.querySelector('ul.pagination li a#thirdSection').classList.add('active');
@@ -340,24 +355,147 @@ $('#thirdSection').on('click', function(){
     document.querySelector('ul.pagination li a#firstSection').classList.remove('active');
 });
 
-
-
 $('#clothesPrevios').on('click', function(){
     if(whichPageIsIt == 2){
         displayProducts(filteredProduct);
+        firstSectionFunction();
     } else if (whichPageIsIt == 3){
-        displayProductsPage2(filteredProduct);  
+        displayProductsPage2(filteredProduct);
+        secondSectionFunction();  
     } else{
         displayProductsPage3(filteredProduct);
+        thirdSectionFunction();
     }
 })
 
 $('#clothesNext').on('click', function(){
     if(whichPageIsIt == 1){
         displayProductsPage2(filteredProduct);
+        secondSectionFunction();
     } else if(whichPageIsIt == 2){
         displayProductsPage3(filteredProduct);
+        thirdSectionFunction();
     } else{
         displayProducts(filteredProduct);
+        firstSectionFunction();
     }
 })
+
+//DISPLAY MODAL PRODUCT
+function productClicked(id){
+    outputPhoto = '';
+    outputDescription = '';
+    for (product of filteredProduct){
+        if(product.id == id){
+            outputPhoto = `<img src="${product.image}" alet = "${product.title}">`;
+            outputDescription = `<h2 id = "modalProductTitle">${product.title}</h2>
+            <h4 id = "modalProductCategory">${product.category}</h4>
+            <h1 id = "modalProductPrice">&dollar; ${product.price}</h1>
+            <p id = "modalProductDescription">${product.description}</p>
+            <button id = "addToCart" onClick = "addToCart(${product.id})" data-id = "${id}">Add to Cart</button>
+            <button id = "proceedCheckout" class = "btn2" onClick = "moveToCheckout()">Proceed to Checkout</button>`;
+        }
+    }
+    document.querySelector('#modalPhoto').innerHTML = outputPhoto;
+    document.querySelector('#modalDescription').innerHTML = outputDescription;
+}
+
+
+let searchPerform = document.querySelector('#search-addon');
+searchPerform.addEventListener('click', function(e){
+    filteredProduct = [];
+    productAnounce = 0;
+    let value = document.querySelector('#searchForProducts').value;
+    filter = value.toLowerCase();
+    for (let product of products){
+        productUpperCase = product.title.toLowerCase();
+        if(productUpperCase.includes(filter)){
+            filteredProduct.push(product);
+            productAnounce++;
+        }
+    }
+    displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
+});
+
+function searchItemClicked(id){
+    filteredProduct = [];
+    productAnounce = 0;
+    for (let product of products){
+        if (product.id == id){
+            filteredProduct.push(product);
+            productAnounce++;
+        }
+    }
+    displayProducts(filteredProduct);
+    $('#productAnounce').html(productAnounce);
+}
+
+
+const list = document.querySelector('#list');
+
+function setList(arr){
+    clearList();
+    for (let product of arr){
+        let item = document.createElement('li');
+        item.classList.add('list-group-item');
+        let text = document.createTextNode(product.title);
+        let att = document.createAttribute("onClick");
+        att.value = "searchItemClicked("+ product.id +")";
+        item.appendChild(text);
+        item.setAttributeNode(att);
+        list.appendChild(item);
+    }
+    if (arr.length === 0){
+        setNoResults();
+    }
+}
+
+function clearList(){
+    while(list.firstChild){
+        list.removeChild(list.firstChild);
+    }
+}
+
+function setNoResults(){
+    let item = document.createElement('li');
+    item.classList.add('list-group-item');
+    let text = document.createTextNode("No Results Found!");
+    item.appendChild(text);
+    list.appendChild(item);
+}
+
+function getRelevancy(value, searchTerm){
+    if (value === searchTerm){
+        return 2;
+    } else if (value.startsWith(searchTerm)){
+        return 1;
+    } else if (value.includes(searchTerm)){
+        return 0;
+    }
+}
+
+const searchInput = document.querySelector('#searchForProducts');
+searchInput.addEventListener('input', (event)=>{
+    let value = event.target.value;
+    if (value && value.trim().length > 0){
+        value = value.trim().toLowerCase();
+        setList(products.filter(product =>{
+            return product.title.toLowerCase().includes(value);
+        }).sort((productA, productB)=>{
+            return getRelevancy(productB.title, value) - getRelevancy(productA.title, value);
+        }));
+
+    } else {
+        clearList();
+    }
+})
+
+//CLICK ON CHECKOUT MOVE TO CART PAGE
+function moveToCheckout(){
+    if(confirm('Proceed to check out?')) window.open('../cart.html'); return false;
+}
+
+$(document).ready(function() {
+    displayCartItems(productCart);
+});

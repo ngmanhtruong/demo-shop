@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name = "description" content = "shopping demo" />
-    <meta charset="utf-8">
-
-    <title>MysticT's Shop</title>
-    
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>CHECK OUT PAGE</title>
     <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
-    <script src = "assets/js/jquery-3.6.0.js"></script>
+    <link href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src = "assets/js/jquery-3.6.0.min.js"></script>
     <script src = "assets/js/bootstrap.min.js"></script>
-    <script src = "assets/js/bootstrap.bundle.min.js"></script>
+    <script src = "assets/js/myScript.js"></script>
+    <script src = "assets/js/cart.js"></script>
 </head>
+
 <body>
-    <div class="loader-wrapper">
+    <!--<div class="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
-    </div>
+    </div>-->
     <header>
         <div class = "header-top">
             <div class = "desktop-w desktop-md d-flex">
@@ -184,289 +185,123 @@
             </div>
         </div>
     </div>
-    <div class = "page-content">
-        <section class = "banner">
-            <div class = "desktop-w desktop-md">
-                <div id="bannerCarousel" class="carousel slide" data-bs-touch="false" data-bs-interval="true">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/images/banner-img-main.jpg" class="d-block" alt="banner-main">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/images/banner-img1.jpg" class="d-block" alt="banner-1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/images/sale-up-50percent.jpg" class="d-block" alt="banner-2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/images/banner-img3.jpg" class="d-block" alt="banner-3">
+    <div class = "card-wrap">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title border-bottom">
+                        <div class="row">
+                            <div class="col">
+                                <h4><b>Shopping Cart</b></h4>
+                            </div>
+                            <div class="col align-self-center text-right text-muted" id = "how-many">3 items</div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                    <div id="product-list"></div>
+                    <div class="back-to-shop"><a href="index.html" target="_blank">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
+                        Add more product
                     </button>
                 </div>
-            </div>
-        </section>
-        <section class = "clothes-discount-banner">
-            <div class = "desktop-w desktop-md">
-                <div class = "wrap d-flex">
-                    <div class = "block block1">
-                        <div class = "img">
-                            <a href= "product-display.html" target = "_blank" class = "scrolldown-hover">
-                                <img src="assets/images/10percent-sale.jpg" alt="10-percent-sale">
-                            </a>
-                        </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5><b>Summary</b></h5>
                     </div>
-                    <div class = "block block2">
-                        <div class = "img">
-                            <a href= "product-display.html" target = "_blank" class = "scrolldown-hover">
-                                <img src="assets/images/sale.jpg" alt="sale-main">
-                            </a>
-                        </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" id="product-cnt" style="padding-left:0;">ITEMS 3</div>
+                        <div class="col text-right" id = "sum-money"> &#8363;</div>
                     </div>
-                    <div class = "block block3">
-                        <div class = "img">
-                            <a href= "product-display.html" target = "_blank" class = "scrolldown-hover">
-                                <img src="assets/images/50percent-sale.jpg" alt="50-percent-sale">
-                            </a>
-                            
-                        </div>
-                    </div>
+                    <form>
+                        <p>SHIPPING</p> <select id = "select-delivery">
+                            <option selected>Please Choose A Delivery</option>
+                            <option value = "1" class="text-muted" id = "deliver-price1">Standard-Delivery - &dollar;5</option>
+                            <option value = "2" class="text-muted" id = "deliver-price2">Special-Delivery - &dollar;7.99</option>
+                        </select>
+                        <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right" id = "total-price">137.00 &#8363;</div>
+                    </div> <button class="btn btn-outline-success">CHECKOUT</button>
                 </div>
             </div>
-        </section>
-        <section class = "trending-products">
-            <div class = "desktop-w desktop-md">
-                <div class = "title overlock">
-                    <div class = "text">
-                        <h1>TRENDING PRODUCTS</h1>
-                    </div>
-                    <div class = "category d-flex flex-wrap">
-                        <ul class = "nav nav-pills trending-tabs">
-                            <li class = "nav-item first-item">
-                                <a class = "nav-link active" id = "displayFeaturedProducts">FEATURED</a>
-                            </li>
-                            <li class = "nav-item second-item">
-                                <a class = "nav-link" id = "displayBestSellers">BEST SELLERS</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class = "wrap d-flex" id = "trendingProducts">
-                    <!-- <div class = "item">
-                        <div class = "item-width">
-                            <div class = "img">
-                                <img src="" alt="">
-                            </div>
-                            <div class = "product-description">
-                                <h3 class = "product-title"></h3>
-                                <div class = "product-price-and-discount">
-                                    <span class = "regular-price"></span>
-                                    <span class = "discount-percentage"></span>
-                                    <span class = "price"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class = "item-hover">
-                            <span class = "overlock">ADD TO CART</span>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-        <section class = "parallex clothes-banner">
-            <div class = "desktop-w desktop-md">
-                <div class = "wrap background-parallex" id = "clothesParallex">
-                    <div class = "content">
-                        <div class = "title">
-                            <h2 class = "title overlock"> CLOTHES </h2>
-                        </div>
-                        <div class = "text">
-                            <p>It's not about the weather</p>
-                            <p>It's Fashion</p>
-                        </div>
-                        <span><a href = "product-display.html" target = "_blank">SHOP NOW!</a></span>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        <section class = "clothes-section">
-            <div class = "desktop-w desktop-md">
-                <div class = "wrap d-flex flex-wrap" id = "clothesSection">
-                    <!-- <div class="item">
-                        <div class="item-width">
-                            <div class="img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="product-description">
-                                <h3 class="product-title"></h3>
-                                <div class="product-price-and-discount">
-                                    <span class="regular-price"></span>
-                                    <span class="discount-percentage"></span>
-                                    <span class="price"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-hover">
-                            <span class="overlock">ADD TO CART</span>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-            <div class = "clothes-pagination">
-                <div class = "desktop-w desktop-md">
-                    <nav aria-label="Page navigation ">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link previous" id = "clothesPrevios" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link active" id = "firstSection">1</a></li>
-                            <li class="page-item"><a class="page-link" id = "secondSection">2</a></li>
-                            <li class="page-item">
-                                <a class="page-link next" id = "clothesNext" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </section>
-        <section class = "parallex electronics-banner">
-            <div class = "desktop-w desktop-md">
-                <div class = "wrap background-parallex" id = "electronicsParallex">
-                    <div class = "content">
-                        <div class = "title">
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </section>
-        <section class = "electronics-section">
-            <div class = "desktop-w desktop-md">
-                <div class = "electronics-title">
-                    <h2 class = " h2-title overlock">ELECTRONICS</h2>
-                </div>
-                <div class = "electronics-brand">
-                    <div class = "wrap d-flex flex-wrap">
-                        <div class = "block block1 d-flex">
-                            <div class = "img">
-                                <a href="#" class = "scrolldown-hover">
-                                    <img src="assets/images/acer-brand.png" alt="acer-brand">
-                                </a>
-                            </div>
-                        </div>
-                        <div class = "block block2 d-flex">
-                            <div class = "img">
-                                <a href="#" class = "scrolldown-hover">
-                                    <img src="assets/images/samsung-brand.png" alt="samsung-brand">
-                                </a>
-                            </div>
-                        </div>
-                        <div class = "block block3 d-flex">
-                            <div class = "img"> 
-                                <a href="#" class = "scrolldown-hover">
-                                    <img src="assets/images/siliconpower-brand.png" alt="silicon-power-brand">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class = "wrap d-flex flex-wrap" id = "electronicsSection">
-                    <!-- <div class="item">
-                        <div class="item-width">
-                            <div class="img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="product-description">
-                                <h3 class="product-title"></h3>
-                                <div class="product-price-and-discount">
-                                    <span class="price"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-hover">
-                            <span class="overlock">ADD TO CART</span>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-        <section class = "jewelry-banner">
-            <div class = "desktop-w desktop-md">
-                <div class = "jewelry-title text-center">
-                    <h2 class = "h2-title overlock">JEWELRY</h2>
-                </div>
-                <div class = "wrap d-flex flex-wrap">
-                    <div class = "banner banner1">
-                        <div class = "img">
-                            <a class = "scrolldown-hover" href= "product-display.html" target = "_blank">
-                                <img src="assets/images/jewelry-banner1.jpg" alt="jewelry-banner">
-                            </a>
-                        </div>
-                    </div>
-                    <div class = "banner banner2">
-                        <div class = "img">
-                            <a class = "scrolldown-hover" href= "product-display.html" target = "_blank"> 
-                                <img src="assets/images/jewelry-banner2.jpg" alt="jewelry-banner">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class = "jewelry-section">
-            <div class = "desktop-w desktop-md">
-                <div class = "wrap d-flex flex-wrap" id = "jewelrySection">
-                    <!-- <div class = "item item">
-                        <div class = "item-width">
-                            <div class = "img">
-                                <img src="" alt="">
-                                <div class = "item-hover">
-                                    <img src="" alt="">
-                                </div>
-                            </div>
-                            <div class = "product-description">
-                                <h3 class = "product-title overlock"></h3>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-        <section class = "brands">
-            <div class = "desktop-w desktop-md">
-                <div class = "title overlock text-center">
-                    <h2 class = "h2-title">BRANDS</h2>
-                </div>
-                <div class = "brands-icons d-flex flex-wrap justify-content-evenly">
-                    <div class = "block block1">
-                        <div class = "img">
-                            <a href="#">
-                                <img src="assets/images/business-logo.jpg" alt="business-brands">
-                            </a>
-                        </div>
-                    </div>
-                    <div class = "block block2">
-                        <div class = "img">
-                            <a href="#">
-                                <img src="assets/images/business-logo2.jpg" alt="business-brands">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
+
+
+    <!-- Modal form -->
+    <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class = "needs-validation was-validated" id = "form-add-product" novalidate>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="validationCustom01" class = "form-label">Name</label>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Enter product name" required>
+                            <div class = "valid-feedback">
+                                OK
+                            </div>
+                            <div class="invalid-feedback">
+                                Please choose a Product Name.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image" class = "form-label">Image</label>
+                            <input type="file" class="form-control" id="image" required>
+                            <div class = "valid-feedback">
+                                OK
+                            </div>
+                            <div class="invalid-feedback">
+                                Please choose a Picture
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6" style = "padding: 0 10px 0 0;">
+                                <div class="form-group">
+                                    <label for="price" class = "form-label">Price</label>
+                                    <input type="text" class="form-control" pattern="[1-9][0-9]{6,9}" id="price" placeholder="Price in VND" required>
+                                    <div class = "valid-feedback">
+                                        OK
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a price
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6" style = "padding: 0 0 0 10px;">
+                                <div class="form-group">
+                                    <label for="qty" class = "form-label">Qty</label>
+                                    <input type="number" class="form-control" min = "1" pattern="[1-9][0-9]*"  id="qty" placeholder="Quantity" required>
+                                    <div class = "valid-feedback">
+                                        OK
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter the amount you want
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc" class = "form-label">Description</label>
+                            <input type="text" class="form-control" id="desc" placeholder="Description" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-center">
+                        <button type="submit" id="add-to-cart" class="btn btn-success">Add to cart</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class = "parallex-footer">
             <div class = "desktop-w desktop-md">
@@ -645,63 +480,131 @@
     <script src = "assets/js/myScript.js"></script>
     <script src = "assets/js/cart.js"></script>
     <script>
-        //WHEN DOCUMENT IS READY WAIT 0.5 SEC TO SHOW
-        // $(document).ready(function(){
-        //     setTimeout(function(){
-        //         $(".loader-wrapper").fadeOut("slow");
-        //     }, 500);
-        // })
-        // $(window).on("load",function(){
-        //    $(".loader-wrapper").fadeOut("slow");
-        // });
+        //JQuery
+        //Tong tien
+        var totalPrice = 0;
+        var formValidated = false;
 
-        //SETTINGS FOR BANNER CAROUSEL TO WAIT 2SEC TO CHANGE THE IMAGE
-        const bannerCarousel = document.querySelector("#bannerCarousel");
-        var carousel = new bootstrap.Carousel(bannerCarousel,{
-            interval: 2000
-        });
+        $('#form-add-product').submit(function (event) { 
+            //Chan submit form
+            event.preventDefault();
+            //event.stopPropagation();
 
-        //parallex electronic controls
-        elecParallex = document.querySelector('#electronicsParallex');
-        //parallex clothes controls
-        clothParallex = document.querySelector('#clothesParallex');
+            //Tạo đối tưởng product từ các dữ liệu nhập từ form
+            let fileName = '';
+            //Neu có chọn file ảnh
+            if ($('#image').prop('files')[0] != undefined)
+                fileName = $('#image').prop('files')[0].name;
 
-        //SCROLL EVENT
-        window.addEventListener('scroll',function(){
-            var value = window.scrollY;
-            //console.log(value);
-            //parallex clothes controls
-            if (value > 1800 && value < 3350){
-                let val = (150 - (value-1950)*0.16);
-                if (val > -150){
-                    clothParallex.style.backgroundPositionY = "" + val + "%";
-                }
+            let product = {
+                name: $('#name').val(),
+                fileName: fileName,
+                price: parseInt($('#price').val()),
+                desc: $('#desc').val(),
+                qty: parseInt($('#qty').val())
             }
-            //parallex electronic controls
-            if (value > 2800 && value < 4450){
-                let val = (150 - (value-2950)*0.15);
-                if (val > -150){
-                    elecParallex.style.backgroundPositionY = "" + val + "%";
-                }
-            }
+            //console.log(product);
+            //Thêm vào mảng productCart
+            productCart.push(product);
+            //Close form
+            //$('#form').modal('hide');
+            //Hiển thị lại ds sản phẩm
+            //$('#name').val('');
+            //$('#form-add-product').trigger('reset');
+            showProduct();
+            
         });
+        
+        function showProduct() {
+            let productCnt = 0;
+            let howMany = 0;
+            let sumMoney = 0;
+            //Reset ds san pham
+            $('#product-list').html('');//innerHTML = '';
 
-        //STICKY NAVIGATION BAR
-        window.onscroll = function() {
-            stickyNavbar();
+            //Duyệt mảng và show từng sản phẩm
+            productCart.forEach(function (product, index) {
+                let output = `
+                   <div class="row border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="images/product/${product.fileName}"></div>
+                        <div class="col">
+                            <div class="row text-muted">${product.name}</div>
+                            <div class="row">${product.desc}</div>
+                        </div>
+                        <div class="col"> <input name="qty" min="1" type="number" data-index="${index}" value="${product.qty}"> </div>
+                        <div class="col">₫ ${product.price.toLocaleString()} <button class="remove" data-index="${index}">&#10005;</button></div>
+                    </div>
+                </div>
+                `;
+                //Thêm vào list
+                $('#product-list').append(output);
+                //
+                productCnt += product.qty;
+                howMany+= 1;
+                sumMoney += product.price * product.qty;
+                totalPrice = sumMoney;
+            });
+
+            //Show tổng số lượng sản phẩm
+            $('#product-cnt').html('ITEMS ' + productCnt);
+
+            //Show so san pham duoc chon
+            if (howMany == 1)
+                $('#how-many').html(howMany + ' item');
+            else
+                $('#how-many').html(howMany + ' items');
+            
+            //Tong so tien chua tinh ship
+            $('#sum-money').html(sumMoney.toLocaleString() + ' &#8363;');
+
+            //Gán sự kiện change cho tất cả qty
+            $('input[name="qty"]').change(updateQty);
+
+            //Gán sự kiện xóa product
+            $('.remove').click(removeProduct);
+
+            //So tien total
+            $('#total-price').html(totalPrice.toLocaleString() + ' &#8363;');
+        }
+        showProduct();
+
+        //Xử lý update số lượng SP
+        function updateQty() {
+            //    alert(this.value);
+            //Update số lượng
+            let index = this.dataset.index;
+            productCart[index].qty = parseInt(this.value);
+            showProduct();
         };
-        var navbar = document.querySelector(".menu-navigator");
-        var sticky = navbar.offsetTop + 146;
-
-        function stickyNavbar(){
-            if (window.pageYOffset >= sticky){
-                navbar.classList.add('sticky');
-            } else{
-                navbar.classList.remove('sticky');
+        //
+        function removeProduct() {
+            if (confirm("Are you sure?")) {
+                let index = this.dataset.index;
+                productCart.splice(index, 1);
+                showProduct();
             }
         }
 
+        $('#select-delivery').change(function(){
+            $('#select-delivery option:selected').each(function(){
+                if (this.value == 1){
+                    let newTotalPrice = totalPrice + 20000;
+                    $('#total-price').html(newTotalPrice.toLocaleString() + ' &#8363;');
+                }
+                if (this.value == 2){
+                    let newTotalPrice = totalPrice + 35000;
+                    $('#total-price').html(newTotalPrice.toLocaleString() + ' &#8363;');
+                }
+            })
+        })
+
+        function moveToCheckout(){
+            window.open('../product-display.html');
+        }
+            
     </script>
-    
 </body>
+
 </html>
+

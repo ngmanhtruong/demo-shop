@@ -29,7 +29,7 @@ function initData(data){
 
 
     //LOADING ABOVE THIS LINE
-    //$(".loader-wrapper").fadeOut("slow");
+    $(".loader-wrapper").fadeOut("slow");
 }
 
 
@@ -45,7 +45,6 @@ function getRndInteger() {
     }
 }
 
-
 function trendingProducts(arr){
     let output = '';
     let count = 1;
@@ -59,19 +58,21 @@ function trendingProducts(arr){
             <div class = "item item${count++}">
                 <div class = "item-width">
                     <div class = "img">
-                        <img src="${product.image}" alt="${product.title}">
+                        <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="${product.image}" alt="${product.title}">
+                        </a>
                     </div>
                     <div class = "product-description d-flex">
                         <h3 class = "product-title overlock">${product.title}</h3>
                         <div class = "product-price-and-discount">
-                            <span class = "regular-price">${product.price} USD</span>
+                            <span class = "regular-price">&dollar;${product.price}</span>
                             <span class = "discount-percentage">${discount} %</span>
                             <span class = "price">${price} USD</span>
                         </div>
                     </div>
                 </div>
                 <div class = "item-hover">
-                    <span class = "overlock">ADD TO CART</span>
+                    <span class = "overlock" data-id = "${product.id}" onClick = "addToCart(${product.id})">ADD TO CART</span>
                 </div>
             </div>`;
         }
@@ -92,19 +93,21 @@ function displayBestSellers(arr){
             <div class = "item item${count++}">
                 <div class = "item-width">
                     <div class = "img">
-                        <img src="${product.image}" alt="${product.title}">
+                        <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="${product.image}" alt="${product.title}">
+                        </a>
                     </div>
                     <div class = "product-description d-flex">
                         <h3 class = "product-title overlock">${product.title}</h3>
                         <div class = "product-price-and-discount crimson">
-                            <span class = "regular-price">${product.price} USD</span>
+                            <span class = "regular-price">&dollar;${product.price}</span>
                             <span class = "discount-percentage">${discount}%</span>
                             <span class = "price">${price} USD</span>
                         </div>
                     </div>
                 </div>
                 <div class = "item-hover">
-                    <span class = "overlock">ADD TO CART</span>
+                    <span class = "overlock" data-id = "${product.id}" onClick = "addToCart(${product.id})">ADD TO CART</span>
                 </div>
             </div>`;
         }
@@ -130,19 +133,21 @@ function displayClothes(arr){
             <div class = "item item${count++}">
                 <div class = "item-width">
                     <div class = "img">
-                        <img src="${product.image}" alt="${product.title}">
+                        <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="${product.image}" alt="${product.title}">
+                        </a>
                     </div>
                     <div class = "product-description d-flex">
                         <h3 class = "product-title overlock">${product.title}</h3>
                         <div class = "product-price-and-discount crimson">
-                            <span class = "regular-price">${product.price} USD</span>
+                            <span class = "regular-price">&dollar;${product.price}</span>
                             <span class = "discount-percentage">${discount}%</span>
                             <span class = "price">${price} USD</span>
                         </div>
                     </div>
                 </div>
                 <div class = "item-hover">
-                    <span class = "overlock">ADD TO CART</span>
+                    <span class = "overlock" data-id = "${product.id}" onClick = "addToCart(${product.id})">ADD TO CART</span>
                 </div>
             </div>`;
         }
@@ -168,19 +173,21 @@ function displayClothesPage2(arr){
                 <div class = "item item${count++}">
                     <div class = "item-width">
                         <div class = "img">
-                            <img src="${product.image}" alt="${product.title}">
+                            <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                <img src="${product.image}" alt="${product.title}">
+                            </a>
                         </div>
                         <div class = "product-description d-flex">
                             <h3 class = "product-title overlock">${product.title}</h3>
                             <div class = "product-price-and-discount crimson">
-                                <span class = "regular-price">${product.price} USD</span>
+                                <span class = "regular-price">&dollar;${product.price}</span>
                                 <span class = "discount-percentage">${discount}%</span>
                                 <span class = "price">${price} USD</span>
                             </div>
                         </div>
                     </div>
                     <div class = "item-hover">
-                        <span class = "overlock">ADD TO CART</span>
+                        <span class = "overlock" data-id = "${product.id}" onClick = "addToCart(${product.id})">ADD TO CART</span>
                     </div>
                 </div>`;
             }
@@ -215,17 +222,19 @@ function displayElectronics(arr){
             <div class = "item item${count++}">
                 <div class = "item-width">
                     <div class = "img">
-                        <img src="${product.image}" alt="${product.title}">
+                        <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="${product.image}" alt="${product.title}">
+                        </a>
                     </div>
                     <div class = "product-description d-flex">
                         <h3 class = "product-title overlock">${product.title}</h3>
                         <div class = "product-price-and-discount crimson">
-                            <span class = "price">${product.price} USD</span>
+                            <span class = "price">&dollar;${product.price}</span>
                         </div>
                     </div>
                 </div>
                 <div class = "item-hover">
-                    <span class = "overlock">ADD TO CART</span>
+                    <span class = "overlock" data-id = "${product.id}" onClick = "addToCart(${product.id})">ADD TO CART</span>
                 </div>
             </div>`;
 
@@ -255,8 +264,10 @@ function displayJewelry(arr){
                         <h3 class = "product-title overlock">${product.title}</h3>
                     </div>
                     <div class = "img">
-                        <img src="${product.image}" alt="${product.title}" class = "main-img">
-                        <div class = "item-hover">
+                        <a class = "img-click" data-id = "${product.id}">
+                            <img src="${product.image}" alt="${product.title}" class = "main-img">
+                        </a>
+                        <div class = "item-hover" data-id = "${product.id}">
                             <img src="" alt="">
                         </div>
                     </div>
@@ -331,8 +342,59 @@ $('#clothesNext').on('click', function(){
     }
 })
 
-$('#clothes').click(function(e) {
-    e.preventDefault();
-    window.open('../product-display.html');
+// $('#clothes').click(function(e) {
+//     e.preventDefault();
+//     window.open('../product-display.html');
 
+// });
+
+
+//SHOW PRODUCT
+var myModal = new bootstrap.Modal(document.querySelector('#staticBackdrop'));
+
+function productClicked(id){
+    outputPhoto = '';
+    outputDescription = '';
+    for (product of products){
+        if(product.id == id){
+            outputPhoto = `<img src="${product.image}" alet = "${product.title}">`;
+            outputDescription = `<h2 id = "modalProductTitle">${product.title}</h2>
+            <h4 id = "modalProductCategory">${product.category}</h4>
+            <h1 id = "modalProductPrice">&dollar; ${product.price}</h1>
+            <p id = "modalProductDescription">${product.description}</p>
+            <button onClick = "addToCart(${product.id})" data-id = "${id}">Add to Cart</button>
+            <button id = "proceedCheckout" class = "btn2" onClick = "moveToCheckout()">Proceed to Checkout</button>`;
+        }
+    }
+    document.querySelector('#modalPhoto').innerHTML = outputPhoto;
+    document.querySelector('#modalDescription').innerHTML = outputDescription;
+}
+
+//CATEGORY DROP DOWN ON CLICK
+$("#clothes").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#clothesParallex").offset().top, duration: 1000
+    });
+});
+
+$("#electronics").click(function() {
+    $('html,body').animate({
+        scrollTop: $("#electronicsParallex").offset().top, duration: 1500
+    });
+});
+
+$("#jewelry").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".jewelry-banner").offset().top, duration: 2000
+    });
+});
+
+//MOVE TO CHECKOUT
+function moveToCheckout(){
+    if(confirm('Proceed to check out?')) window.open('../cart.html'); return false;
+}
+
+//LOAD CART ON RELOAD
+$(document).ready(function() {
+    displayCartItems(productCart);
 });
