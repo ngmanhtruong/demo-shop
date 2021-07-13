@@ -21,7 +21,7 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </div>-->
     <header>
-        <div class = "header-top">
+        <div class = "header-top sticky" id = "headerTop">
             <div class = "desktop-w desktop-md d-flex">
                 <div class = "col-xxl-4 left">
                     <div class = "wrap d-flex">
@@ -54,7 +54,20 @@
                     <div class = "wrap d-flex">
                         <div class = "item search-icon">
                             <div class = "img">
-                                <img src="assets/images/search.svg" alt="search">
+                                <a id = "mainSearch">
+                                    <img src="assets/images/search.svg" alt="search">
+                                </a>
+                            </div>
+                            <div class="input-group rounded disabled" id = "mainSearchDisplay">
+                                <input type="search" class="form-control rounded" id="searchProducts" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon-btn" name = "search"
+                                autofocus autocomplete = "off"/>
+                                <span class="input-group-text border-0" id="search-addon-btn">
+                                  <a class = "search"><img src="assets/images/search.svg" alt="search-icon"></a>
+                                </span>
+                                <div class = "list-group-anchor">
+                                    <ul class = "list-group" id = "mainList"></ul>
+                                </div>
                             </div>
                         </div>
                         <div class = "item user-login">

@@ -4,16 +4,561 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorry for this unconvenient</title>
+    <title>CHECK OUT PAGE</title>
+    <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
+    <link href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src = "assets/js/jquery-3.6.0.js"></script>
+    <script src = "assets/js/bootstrap.min.js"></script>
+    <script src = "assets/js/cart.js"></script>
 </head>
-<style>
-    body{
-        background: url("assets/images/underconstructed.jpg") center no-repeat;
-        background-size: 100%;
-        height: 100vh;
-    }
-</style>
+
 <body>
-    
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <header>
+        <div class = "header-top sticky" id = "headerTop">
+            <div class = "desktop-w desktop-md d-flex">
+                <div class = "col-xxl-4 left">
+                    <div class = "wrap d-flex">
+                            <div class="language-change dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="languageChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ENGLISH
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="languageChange">
+                                    <li><a class="dropdown-item">ENGLISH</a></li>
+                                    <li><a class="dropdown-item">VIETNAMESE</a></li>
+                                </ul>
+                            </div>
+                            <div class="currency-change dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="currencyChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD &dollar;
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="currencyChange">
+                                    <li><a class="dropdown-item">USD</a></li>
+                                    <li><a class="dropdown-item">VND</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 center">
+                    <div class = "wrap">
+                        <span class = "overlock">Welcome to MysticT Store</span>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 right">
+                    <div class = "wrap d-flex">
+                        <div class = "item search-icon">
+                            <div class = "img">
+                                <a id = "mainSearch">
+                                    <img src="assets/images/search.svg" alt="search">
+                                </a>
+                            </div>
+                            <div class="input-group rounded disabled" id = "mainSearchDisplay">
+                                <input type="search" class="form-control rounded" id="searchProducts" placeholder="Search" aria-label="Search"
+                                aria-describedby="search-addon-btn" name = "search"
+                                autofocus autocomplete = "off"/>
+                                <span class="input-group-text border-0" id="search-addon-btn">
+                                  <a class = "search"><img src="assets/images/search.svg" alt="search-icon"></a>
+                                </span>
+                                <div class = "list-group-anchor">
+                                    <ul class = "list-group" id = "mainList"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "item user-login">
+                            <div class = "img">
+                                <img src="assets/images/person-fill.svg" alt="user-login">                  
+                            </div>
+                        </div>
+                        <div class = "item go-to-cart">
+                            <div class = "img">
+                                <a id = "cartContainer">
+                                    <img src="assets/images/cart.svg" alt="go-to-cart">
+                                </a>
+                            </div>
+                            <div class = "product-container disabled" id = "cartDisplay">
+                                <div class = "products">
+                                    <ul class = "list-group" id = "cartList">
+                                        <!-- <li class = "list-group-item">
+                                            <div class = "img">   
+                                                    <img src="assets/images/person.svg" alt="">
+                                            </div>
+                                            <div class = "description">
+                                                <div class = "title">
+                                                    <p><span id = "howMuch">2</span>x <span id= "productTitle">THIS IS TITLE</span></p>
+                                                </div>
+                                                <div class = "price">
+                                                    <p>99$</p>
+                                                </div>
+                                            </div>
+                                            <div class = "delete-item">
+                                                <div class = "img">
+                                                    <a href="">
+                                                        <img src="assets/images/trash.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li> -->
+                                    </ul>
+                                    <div class = "sum-and-taxes list-group-item" id ="sumAndTaxes">
+                                        <!-- <div class = "info d-flex flex-wrap">
+                                            <div class = "col left text-start">
+                                                <p>Total Products:</p>
+                                                <p>Total Shipping:</p>
+                                                <p class = "total">Total</p>
+                                            </div>
+                                            <div class = "col right text-end">
+                                                <p id = "totalProducts">3</p>
+                                                <p id = "totalShipping">&dollar;5</p>
+                                                <p class = "total" id = "totalPrice">&dollar;15</p>
+                                            </div>
+                                        </div>
+                                        <div class = "checkout">
+                                            <button class="btn btn-outline-success">CHECK OUT</button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "header-banner">
+            <div class = "desktop-w desktop-md d-flex">
+                <div class = "col-xxl-4 left">
+                    <div class = "item-width d-flex">
+                        <div class = "img">
+                            <a href="">
+                                <img src="assets/images/email.svg" alt="email-icon">
+                            </a>
+                        </div>
+                        <div class = "email-contact">
+                            <a href="">
+                                <h2 class = "overlock">EMAIL ME: </h2>
+                            </a>
+                            <p class = "email">ng.manhtruong1996@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-xxl-4 center">
+                    <div class = "img">
+                        <a href="index.html">
+                            <img src="assets/images/mystict-logo.png" alt="MysticT-shop-logo">
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class = "col-xxl-4 right">
+                    <div class = "item-width d-flex">
+                        <div class = "img">
+                            <a href="">
+                                <img src="assets/images/contact-us.svg" alt="contact-icon">
+                            </a>
+                        </div>
+                        <div class = "phone-contact">
+                            <a href="">
+                                <h2 class = "overlock">CALL ME: </h2>
+                            </a>    
+                            <p class = "phone-number">0934686272</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class = "menu-navigator">
+        <div class = "desktop-w desktop-md d-flex">
+            <div class = "menu d-flex justify-content-center" id="_desktop_top_menu">
+                <ul class="nav">
+                    <li class="category">
+                        <a class="dropdown-item dropdown-toggle clothes-toggle" aria-current="page"
+                        role="button" id="clothes" data-bs-toggle="dropdown" aria-expanded="false">Clothes</a>
+                            <ul class="dropdown-menu clothes-dropdown" aria-labelledby="clothes">
+                                <li><a class="dropdown-item" id = "womenClothing" href = "product-display.html" target="_blank">Women's clothing</a></li>
+                                <li><a class="dropdown-item" id = "menClothing" href = "product-display.html" target="_blank">Men's clothing</a></li>
+                            </ul>
+                    </li>
+                    <li class="category">
+                        <a class="dropdown-item" id = "electronics">Electronics</a>
+                    </li>
+                    <li class="category">
+                        <a class="dropdown-item" id = "jewelry">Jewelry</a>
+                    </li>
+                    <li class="category">
+                        <a class="dropdown-item" href = "product-display.html" target="_blank">Products Page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class = "card-wrap">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title border-bottom">
+                        <div class="row">
+                            <div class="col">
+                                <h4><b>Shopping Cart</b></h4>
+                            </div>
+                            <div class="col align-self-center text-right text-muted" id = "how-many">3 items</div>
+                        </div>
+                    </div>
+                    <div id="product-list"></div>
+                    <div class="back-to-shop"><a href="index.html" target="_blank">&leftarrow; <span class="text-muted">Back to shop front page</span></a></div>
+                    <button type="button" class="btn btn-success" id="backToShopping">
+                        Add more product
+                    </button>
+                </div>
+                <div class="col-md-4 summary">
+                    <div>
+                        <h5><b>Summary</b></h5>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" id="product-cnt" style="padding-left:0;">ITEMS 3</div>
+                        <div class="col text-right" id = "sum-money"> &#8363;</div>
+                    </div>
+                    <form>
+                        <p>SHIPPING</p> <select id = "select-delivery">
+                            <option selected>Please Choose A Delivery</option>
+                            <option value = "1" class="text-muted" id = "deliver-price1">Standard-Delivery - &dollar;5</option>
+                            <option value = "2" class="text-muted" id = "deliver-price2">Special-Delivery - &dollar;7.99</option>
+                        </select>
+                        <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right" id = "total-price">137.00 &#8363;</div>
+                    </div> <button class="btn btn-outline-success" id = "checkOut">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class = "parallex-footer">
+            <div class = "desktop-w desktop-md">
+                <div class = "wrap d-flex flex-wrap">
+                    <div class = "block block1 d-flex flex-wrap">
+                        <div class = "my-brand">
+                            <div class = "img">
+                                <img src="assets/images/mystict-logo.png" alt="shop-logo">
+                            </div>
+                            <div class = "shop-info text-center">
+                                <p>This is a dummy text i made to fill out this field. Don't worry about this text. Haha.</p>
+                            </div>
+                        </div>
+                        <div class = "sign-up-email">
+                            <div class = "sign-up-title">
+                                <h3>Get latest products and discounts here!</h3>
+                            </div>
+                            <div class = "sign-up-wrapper d-flex flex-wrap">
+                                <input class = "email-submit" name= "email" type="text" placeholder="Your email address here">
+                                <div class = "sign-up-button d-flex">
+                                    <input type="submit" value = "Submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "block block2 d-flex flex-wrap">
+                        <div class = "part part1">
+                            <div class = "wrap d-flex flex-wrap justify-content-between">
+                                <div class = "item free-shipping">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/paper-airplane.svg" alt="free-ship-image">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">FREE SHIP</h4>
+                                        <p>Over $99</p>
+                                    </div>
+                                </div>
+                                <div class = "item gift-voucher">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/gift.svg" alt="gift-voucher">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">GIFT VOUCHER</h4>
+                                        <p>Free gifts & vouchers</p>
+                                    </div>
+                                </div>
+                                <div class = "item support">
+                                    <div class = "img">
+                                        <a href="">
+                                            <img src="assets/images/24-7-support.png" alt="support-24-7">
+                                        </a>
+                                    </div>
+                                    <div class = "text text-center">
+                                        <h4 class ="h4-title">SUPPORT</h4>
+                                        <p>Support 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "part part2">
+                            <div class = "wrap d-flex flex-wrap justify-content-evenly">
+                                <div class = "item item1">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">PRODUCTS</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">Prices</a>
+                                        </li>
+                                        <li>
+                                            <a href="">New products</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Best sales</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class = "item item2">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">MY COMPANY</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="">About Me</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Secure Payment</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Sitemap</a>
+                                        </li>
+                                        <li>
+                                            <a href="">My Account</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class = "item item3">
+                                    <div class = "title">
+                                        <h4 class ="h4-title">Store Information</h4>
+                                    </div>
+                                    <ul>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon location">
+                                                <img src="assets/images/geo-fill.svg" alt="location-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <p>Demo Shop</p>
+                                            </div>
+                                        </li>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon telephone">
+                                                <img src="assets/images/telephone-fill.svg" alt="phone-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <p>+84 934 686 272</p>
+                                            </div>
+                                        </li>
+                                        <li class= "block d-flex flex-wrap">
+                                            <div class = "icon email">
+                                                <img src="assets/images/mailbox2.svg" alt="mailbox-icon">
+                                            </div>
+                                            <div class = "data">
+                                                <a href="">ng.manhtruong1996@gmail.com</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div class="modal card fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <div class = "back">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        <svg class="arrow" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="352,115.4 331.3,96 160,256 331.3,416 352,396.7 201.5,256 " stroke="#727272"/></svg>
+                        <a id = "backToProducts">Back to all Products</a>
+                    </h5>
+                </div>
+                <div class = "img-heart">
+                    <svg class="heart" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" stroke="#727272" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M340.8,98.4c50.7,0,91.9,41.3,91.9,92.3c0,26.2-10.9,49.8-28.3,66.6L256,407.1L105,254.6c-15.8-16.6-25.6-39.1-25.6-63.9  c0-51,41.1-92.3,91.9-92.3c38.2,0,70.9,23.4,84.8,56.8C269.8,121.9,302.6,98.4,340.8,98.4 M340.8,83C307,83,276,98.8,256,124.8  c-20-26-51-41.8-84.8-41.8C112.1,83,64,131.3,64,190.7c0,27.9,10.6,54.4,29.9,74.6L245.1,418l10.9,11l10.9-11l148.3-149.8  c21-20.3,32.8-47.9,32.8-77.5C448,131.3,399.9,83,340.8,83L340.8,83z" stroke="#727272"/></svg>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="product-info">
+                    <div class="photo" id = "modalPhoto">
+                      
+                    </div>
+                    <div class="description" id = "modalDescription">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script src = "assets/js/cart.js"></script>
+    <script>
+        let fullProductUrl = 'https://fakestoreapi.com/products';
+        //CREATE PRODUCTS ARRAY
+        var products = [];
+        var cartData = [];
+
+        //FECTCH FROM FAKEAPISTORE
+        fetch(fullProductUrl,{})
+            .then(function(response){
+                return response.json();
+            })
+            .then (function(data){
+                initData(data);
+            })
+            .catch(err => console.log(err));
+
+        function initData(data){
+            products = data;
+            console.log(products);
+            //show products by default
+
+            //LOADING ABOVE THIS LINE
+            $(".loader-wrapper").fadeOut("slow");
+        }
+
+        $(document).ready(function(){
+            $(".loader-wrapper").fadeOut("slow");
+        });
+        var productCart = [];
+        productCart = JSON.parse(localStorage["cartData"]);
+        //JQuery
+        //Tong tien
+        var totalPrice = 0;
+        var formValidated = false;
+
+        $('#form-add-product').submit(function (event) { 
+            //Chan submit form
+            event.preventDefault();
+            window.open('../product-display.html');
+            
+        });
+        
+        function showProduct() {
+            let productCnt = 0;
+            let howMany = 0;
+            let sumMoney = 0;
+            //Reset ds san pham
+            $('#product-list').html('');//innerHTML = '';
+
+            //Duyệt mảng và show từng sản phẩm
+            productCart.forEach(function (product, index) {
+                let output = `
+                   <div class="row border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="${product.image}"></div>
+                        <div class="col">
+                            <div class="row text-muted">${product.title}</div>
+                        </div>
+                        <div class="col"> <input name="qty" min="1" type="number" data-index="${index}" value="${product.qty}"> </div>
+                        <div class="col">₫ ${product.price.toLocaleString()} <button class="remove" data-index="${index}">&#10005;</button></div>
+                    </div>
+                </div>
+                `;
+                //Thêm vào list
+                $('#product-list').append(output);
+                //
+                productCnt += product.qty;
+                howMany+= 1;
+                sumMoney += product.price * product.qty;
+                totalPrice = sumMoney;
+            });
+
+            //Show tổng số lượng sản phẩm
+            $('#product-cnt').html('ITEMS ' + productCnt);
+
+            //Show so san pham duoc chon
+            if (howMany == 1)
+                $('#how-many').html(howMany + ' product');
+            else
+                $('#how-many').html(howMany + ' products');
+            
+            //Tong so tien chua tinh ship
+            $('#sum-money').html('&dollar;' + sumMoney.toLocaleString());
+
+            //Gán sự kiện change cho tất cả qty
+            $('input[name="qty"]').change(updateQty);
+
+            //Gán sự kiện xóa product
+            $('.remove').click(removeProduct);
+
+            //So tien total
+            $('#total-price').html('&dollar;'+ totalPrice.toLocaleString());
+        }
+        showProduct();
+
+        //Xử lý update số lượng SP
+        function updateQty() {
+            //Update số lượng
+            let index = this.dataset.index;
+            productCart[index].qty = parseInt(this.value);
+            cartData = productCart;
+            localStorage["cartData"] = JSON.stringify(cartData);
+            productCart = JSON.parse(localStorage["cartData"]);
+            showProduct();
+            displayCartItems(productCart);
+        };
+        //
+        function removeProduct() {
+            if (confirm("Are you sure?")) {
+                let index = this.dataset.index;
+                productCart.splice(index, 1);
+                cartData = productCart;
+                localStorage["cartData"] = JSON.stringify(cartData);
+                productCart = JSON.parse(localStorage["cartData"]);
+                showProduct();
+                displayCartItems(productCart);
+            }
+        }
+
+        $('#select-delivery').change(function(){
+            $('#select-delivery option:selected').each(function(){
+                if (this.value == 1){
+                    let newTotalPrice = totalPrice + 5;
+                    $('#total-price').html('&dollar;' + newTotalPrice.toLocaleString());
+                }
+                if (this.value == 2){
+                    let newTotalPrice = totalPrice + 7.99;
+                    $('#total-price').html('&dollar;' + newTotalPrice.toLocaleString());
+                }
+            })
+        })
+
+        $("#backToShopping").click(function(){
+            window.open('../product-display.html');
+        });
+        
+        $('#checkOut').click(function(){
+            alert("THANK YOU, SEE YOU AROUND");
+        });
+    </script>
 </body>
+
 </html>
+

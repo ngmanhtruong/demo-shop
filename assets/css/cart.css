@@ -157,3 +157,9 @@ a:hover {
 button.remove {
   border: none;
   margin-left: 10px; }
+
+.product-container .products .sum-and-taxes p {
+  margin: 0; }
+
+.product-container .products .sum-and-taxes select#totalShipping {
+  padding: 0; }

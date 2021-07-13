@@ -431,7 +431,7 @@ function searchItemClicked(id){
     $('#productAnounce').html(productAnounce);
 }
 
-
+//TAO LIST TRA VE KET QUA CHO SEARCH
 const list = document.querySelector('#list');
 
 function setList(arr){
@@ -450,13 +450,14 @@ function setList(arr){
         setNoResults();
     }
 }
-
+//CLEARLIST WHEN NO RESULT
 function clearList(){
     while(list.firstChild){
         list.removeChild(list.firstChild);
     }
 }
 
+//TRA VE NO RESULT FOUND KHI KHONG CO KET QUA
 function setNoResults(){
     let item = document.createElement('li');
     item.classList.add('list-group-item');
@@ -465,6 +466,7 @@ function setNoResults(){
     list.appendChild(item);
 }
 
+//TIM KIEM DUA TREN MUC DO LIEN QUAN
 function getRelevancy(value, searchTerm){
     if (value === searchTerm){
         return 2;
@@ -475,10 +477,11 @@ function getRelevancy(value, searchTerm){
     }
 }
 
+//DOC DU LIEU NGUOI DUNG NHAP VAO
 const searchInput = document.querySelector('#searchForProducts');
 searchInput.addEventListener('input', (event)=>{
     let value = event.target.value;
-    if (value && value.trim().length > 0){
+    if (value && value.trim().length > 0){ //trim() dung de bo di khoang trang
         value = value.trim().toLowerCase();
         setList(products.filter(product =>{
             return product.title.toLowerCase().includes(value);
@@ -495,7 +498,3 @@ searchInput.addEventListener('input', (event)=>{
 function moveToCheckout(){
     if(confirm('Proceed to check out?')) window.open('../cart.html'); return false;
 }
-
-$(document).ready(function() {
-    displayCartItems(productCart);
-});

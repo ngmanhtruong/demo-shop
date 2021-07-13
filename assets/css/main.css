@@ -9202,6 +9202,21 @@ header .header-top {
         width: 10%;
         margin-left: 20px;
         padding: 5px; }
+        header .header-top .desktop-md .right .wrap .item.search-icon {
+          position: relative; }
+          header .header-top .desktop-md .right .wrap .item.search-icon #mainSearchDisplay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            -webkit-transform: translate(-75%, 100%);
+            -ms-transform: translate(-75%, 100%);
+            transform: translate(-75%, 100%); }
+            header .header-top .desktop-md .right .wrap .item.search-icon #mainSearchDisplay input {
+              width: 300px; }
+            header .header-top .desktop-md .right .wrap .item.search-icon #mainSearchDisplay li.list-group-item:hover {
+              background-color: lightgoldenrodyellow;
+              cursor: pointer; }
         header .header-top .desktop-md .right .wrap .item.user-login {
           padding: 0px; }
         header .header-top .desktop-md .right .wrap .item.go-to-cart {
@@ -9248,6 +9263,7 @@ header .header-top {
               text-align: center; }
 
 header .header-banner {
+  padding-top: 50px;
   border-bottom: 1px solid #eaeaea; }
   header .header-banner .desktop-md .left {
     -webkit-box-pack: left;
@@ -10007,7 +10023,8 @@ section.jewelry-section {
         position: relative;
         height: 200px; }
         section.jewelry-section .desktop-w .wrap .item .img a {
-          height: inherit; }
+          height: inherit;
+          cursor: pointer; }
         section.jewelry-section .desktop-w .wrap .item .img img {
           height: inherit; }
         section.jewelry-section .desktop-w .wrap .item .img img.main-img {

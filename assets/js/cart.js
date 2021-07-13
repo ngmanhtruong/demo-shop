@@ -1,12 +1,17 @@
-var productCart = new Array();
+var productCart = [];
+var storedData = [];
+var cartData = [];
+productCart = JSON.parse(localStorage["cartData"]);
+
+
 
 function displayCartItems(arr){
     let output = '';
     let index = 0;
-    let productCnt = 0;
+    var productCnt = 0;
     let howMany = 0;
-    let sumMoney = 0;
-    let totalPrice = 0;
+    let sumMoney = 0; //sum , not include shipping fee.
+    let totalPrice = 0; //final
     for (product of arr){
         output += 
         `<li class = "list-group-item">
@@ -17,7 +22,7 @@ function displayCartItems(arr){
             </div>
             <div class = "description">
                 <div class = "title">
-                    <p><span id = "howMuch">${product.qty}</span>x <span id= "productTitle">${product.title}</span></p>
+                    <p><span id = "howMuch"><strong>${product.qty}</strong></span>x   <span id= "productTitle">${product.title}</span></p>
                 </div>
                 <div class = "price">
                     <p>&dollar;${product.price}</p>
@@ -34,17 +39,17 @@ function displayCartItems(arr){
         productCnt+= product.qty;
         howMany+=1;
         sumMoney += product.price * product.qty;
-        totalPrice = parseFloat(sumMoney);// 5 is shipping
+        totalPrice = parseFloat(sumMoney);
     }
     let output2 = `                                        
     <div class = "info d-flex flex-wrap">
         <div class = "col left text-start">
-            <p>Total Products:</p>
+            <p>Total Items:</p>
             <p>Total Shipping:</p>
             <p class = "total">Total</p>
         </div>
         <div class = "col right text-end">
-            <p id = "totalProducts">${howMany}</p>
+            <p id = "totalProducts">${productCnt}</p>
             <select id = "totalShipping" onchange="shippingFunction()">
                 <option value = "0">SHIPPING METHOD</option>
                 <option value = "1">BASIC SHIPPING: &dollar;5</option>
@@ -80,7 +85,11 @@ function addToCart(getId){
             productCart.push(product);
         }
     }
-    displayCartItems(productCart);
+    var cartData = productCart;
+    localStorage["cartData"] = JSON.stringify(cartData);
+
+    storedData = JSON.parse(localStorage["cartData"]);
+    displayCartItems(storedData);
 }
 function shippingFunction(){
     var ship = document.querySelector("#totalShipping").value;
@@ -99,7 +108,11 @@ function shippingFunction(){
 function deleteCartProduct(getIndex){
     if (confirm("Are you sure?")){
         productCart.splice(getIndex, 1);
-        displayCartItems(productCart);
+        cartData = productCart;
+        localStorage["cartData"] = JSON.stringify(cartData);
+        storedData = JSON.parse(localStorage["cartData"]);
+        displayCartItems(storedData);
+        reload = location.reload();
     }
 }
 
@@ -127,3 +140,8 @@ $("#cartDisplay").hover(
 function moveToCheckout(){
     if(confirm('Proceed to check out?')) window.open('../cart.html'); return false;
 }
+
+//LOAD CART ON RELOAD
+$(document).ready(function() {
+    displayCartItems(productCart);
+});

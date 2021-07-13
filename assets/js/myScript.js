@@ -264,7 +264,7 @@ function displayJewelry(arr){
                         <h3 class = "product-title overlock">${product.title}</h3>
                     </div>
                     <div class = "img">
-                        <a class = "img-click" data-id = "${product.id}">
+                        <a class = "img-click" onClick = "productClicked(${product.id})" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <img src="${product.image}" alt="${product.title}" class = "main-img">
                         </a>
                         <div class = "item-hover" data-id = "${product.id}">
@@ -398,3 +398,106 @@ function moveToCheckout(){
 $(document).ready(function() {
     displayCartItems(productCart);
 });
+
+//PERFORM SEARCH
+//TAO LIST TRA VE KET QUA CHO SEARCH 
+const mainList = document.querySelector('#mainList');
+
+//FUNCTION TAO LIST BANG UL LI
+function setList(arr){
+    clearList();//CLEAR LIST FIRST
+
+    for (let product of arr){
+        let item = document.createElement('li');
+        item.classList.add('list-group-item');
+        let text = document.createTextNode(product.title);
+        // let att = document.createAttribute("onClick");
+        // att.value = "searchItemClicked("+ product.id +")";
+        item.appendChild(text);
+        // item.setAttributeNode(att);
+        mainList.appendChild(item);
+    }
+    if (arr.length === 0){
+        setNoResults();
+    }
+}
+
+//CLEARLIST WHEN NO RESULT
+function clearList(){
+    while(mainList.firstChild){
+        mainList.removeChild(mainList.firstChild);
+    }
+}
+
+//TRA VE NO RESULT FOUND KHI KHONG CO KET QUA
+function setNoResults(){
+    let item = document.createElement('li');
+    item.classList.add('list-group-item');
+    let text = document.createTextNode("No Results Found!");
+    item.appendChild(text);
+    mainList.appendChild(item);
+}
+
+//TIM KIEM DUA TREN MUC DO LIEN QUAN
+function getRelevancy(value, searchTerm){
+    if (value === searchTerm){
+        return 2;
+    } else if (value.startsWith(searchTerm)){
+        return 1;
+    } else if (value.includes(searchTerm)){
+        return 0;
+    }
+}
+
+//DOC DU LIEU NGUOI DUNG NHAP VAO
+const searchInput = document.querySelector('#searchProducts');
+searchInput.addEventListener('input', (event)=>{
+    let value = event.target.value;
+    if (value && value.trim().length > 0){ //trim() dung de bo di khoang trang
+        value = value.trim().toLowerCase();
+        setList(products.filter(product =>{
+            return product.title.toLowerCase().includes(value);
+        }).sort((productA, productB)=>{
+            return getRelevancy(productB.title, value) - getRelevancy(productA.title, value);
+        }));
+
+    } else {
+        clearList();
+    }
+})
+
+//SEARCH
+let searchPerform = document.querySelector('#search-addon-btn');
+searchPerform.addEventListener('click', function(e){
+    filteredProduct = [];
+    let value = document.querySelector('#searchForProducts').value;
+    filter = value.toLowerCase();
+    for (let product of products){
+        productUpperCase = product.title.toLowerCase();
+        if(productUpperCase.includes(filter)){
+            filteredProduct.push(product);
+        }
+    }
+    displayProducts(filteredProduct);
+});
+
+//hover on search
+$("#mainSearch").hover(
+    function() {
+        $('#mainSearchDisplay').addClass('enabled');
+    }, function() {
+        setTimeout(2000, function(){
+            $('#mainSearchDisplay').removeClass('enabled');
+        });
+    }
+);
+
+$("#mainSearchDisplay").hover(
+    function() {
+      $('#mainSearchDisplay').addClass('enabled');
+    }, function() {
+        setTimeout(function(){
+            $('#mainSearchDisplay').removeClass('enabled');
+        },500);
+    }
+);
