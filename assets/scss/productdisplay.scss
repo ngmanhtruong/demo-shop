@@ -1,3 +1,28 @@
+//SET RESPONSIVE CALL WITH @INCLUDE
+$mobile-width: 767px;
+$tablet-width: 768px;
+$laptop-width: 1024px;
+$desktop-width: 1366px;
+@mixin mobile {
+    @media (max-width: #{$mobile-width}){
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width:#{$laptop-width - 1px}){
+        @content;
+    }
+}
+@mixin laptop {
+    @media (max-width:#{$desktop-width}){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (max-width: 1600px){
+        @content;
+    }
+}
 .category-highlight{
     color: #888;
     background-color: #f5eec2;

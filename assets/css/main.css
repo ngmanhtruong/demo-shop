@@ -9145,6 +9145,9 @@ body {
   body img {
     display: block;
     width: 100%; }
+  @media (max-width: 1600px) {
+    body {
+      font-size: 14px; } }
 
 .h2-title {
   font-size: 40px;
@@ -9265,6 +9268,9 @@ header .header-top {
 header .header-banner {
   padding-top: 50px;
   border-bottom: 1px solid #eaeaea; }
+  @media (max-width: 1600px) {
+    header .header-banner {
+      padding-top: 40px; } }
   header .header-banner .desktop-md .left {
     -webkit-box-pack: left;
     -ms-flex-pack: left;
@@ -9297,6 +9303,9 @@ header .header-banner {
     header .header-banner .desktop-md .center .img {
       width: 50%;
       margin: 0 auto; }
+      @media (max-width: 1600px) {
+        header .header-banner .desktop-md .center .img {
+          width: 80%; } }
   header .header-banner .desktop-md .right {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
@@ -9545,6 +9554,9 @@ section.banner {
     transition: all .8s; }
   section.banner .desktop-md #bannerCarousel .carousel-inner {
     height: 750px; }
+    @media (max-width: 1600px) {
+      section.banner .desktop-md #bannerCarousel .carousel-inner {
+        height: 650px; } }
   section.banner .desktop-md #bannerCarousel .carousel-control-prev {
     -webkit-box-pack: normal;
     -ms-flex-pack: normal;
@@ -9583,14 +9595,27 @@ section.clothes-discount-banner {
   section.clothes-discount-banner .wrap {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between; }
+    justify-content: space-between;
+    height: 485px; }
+    @media (max-width: 1600px) {
+      section.clothes-discount-banner .wrap {
+        height: 400px; } }
     section.clothes-discount-banner .wrap .block {
       width: calc(33% - 10px); }
-      section.clothes-discount-banner .wrap .block.block2 img {
-        height: 485px; }
+      section.clothes-discount-banner .wrap .block.block {
+        height: inherit; }
+        section.clothes-discount-banner .wrap .block.block .img {
+          height: inherit; }
+          section.clothes-discount-banner .wrap .block.block .img a {
+            height: inherit; }
+            section.clothes-discount-banner .wrap .block.block .img a img {
+              height: inherit; }
 
 section.trending-products {
   min-height: 1190px; }
+  @media (max-width: 1600px) {
+    section.trending-products {
+      min-height: 990px; } }
   section.trending-products .title {
     padding-bottom: 30px;
     text-align: center; }
@@ -9645,6 +9670,9 @@ section.trending-products {
         height: 400px;
         padding: 0px 30px;
         margin-bottom: 10px; }
+        @media (max-width: 1600px) {
+          section.trending-products .wrap .item .item-width .img {
+            height: 300px; } }
         section.trending-products .wrap .item .item-width .img a {
           height: inherit; }
         section.trending-products .wrap .item .item-width .img img {
@@ -9661,6 +9689,9 @@ section.trending-products {
           font-size: 20px;
           text-align: center;
           width: 100%; }
+          @media (max-width: 1600px) {
+            section.trending-products .wrap .item .item-width .product-description h3 {
+              font-size: 16px; } }
         section.trending-products .wrap .item .item-width .product-description .product-price-and-discount {
           width: 100%;
           text-align: center;
@@ -9690,11 +9721,17 @@ section.trending-products {
             padding: 0px 5px;
             border-radius: 5px;
             color: white; }
+            @media (max-width: 1600px) {
+              section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
+                font-size: 18px; } }
           section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .price {
             -webkit-animation: priceDisplay ease-in-out 3s infinite;
             animation: priceDisplay ease-in-out 3s infinite;
             font-size: 20px;
             color: #e60073; }
+            @media (max-width: 1600px) {
+              section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .price {
+                font-size: 16px; } }
       section.trending-products .wrap .item .item-hover {
         position: absolute;
         bottom: 0;
@@ -9702,7 +9739,11 @@ section.trending-products {
         -webkit-transform: translate(-50%, 54%);
         -ms-transform: translate(-50%, 54%);
         transform: translate(-50%, 54%);
-        z-index: 2; }
+        z-index: 2;
+        text-align: center; }
+        @media (max-width: 1600px) {
+          section.trending-products .wrap .item .item-hover {
+            width: 65%; } }
         section.trending-products .wrap .item .item-hover span {
           background-color: #f0a04b;
           color: white;
@@ -9715,6 +9756,9 @@ section.trending-products {
           -webkit-transition: all ease 0.5s;
           -o-transition: all ease 0.5s;
           transition: all ease 0.5s; }
+          @media (max-width: 1600px) {
+            section.trending-products .wrap .item .item-hover span {
+              font-size: 16px; } }
 
 section.clothes-banner {
   padding-top: 30px;
@@ -9725,12 +9769,18 @@ section.clothes-banner {
     background-attachment: fixed;
     background-size: 85%;
     background-position-x: 50%; }
+    @media (max-width: 1600px) {
+      section.clothes-banner .desktop-md .background-parallex {
+        background-size: 100%; } }
     section.clothes-banner .desktop-md .background-parallex .content {
       text-align: center;
       padding: 200px 0;
       width: 25%;
       margin: auto;
       background: white; }
+      @media (max-width: 1600px) {
+        section.clothes-banner .desktop-md .background-parallex .content {
+          padding: 150px 0; } }
       section.clothes-banner .desktop-md .background-parallex .content .title h2 {
         font-size: 50px;
         font-weight: bold; }
@@ -9794,6 +9844,9 @@ section.clothes-section {
         height: 285px;
         padding: 0px 30px;
         margin-bottom: 10px; }
+        @media (max-width: 1600px) {
+          section.clothes-section .desktop-w .wrap .item .item-width .img {
+            height: 230px; } }
         section.clothes-section .desktop-w .wrap .item .item-width .img a {
           height: inherit; }
         section.clothes-section .desktop-w .wrap .item .item-width .img img {
@@ -9810,6 +9863,9 @@ section.clothes-section {
           font-size: 20px;
           text-align: center;
           width: 100%; }
+          @media (max-width: 1600px) {
+            section.clothes-section .desktop-w .wrap .item .item-width .product-description h3 {
+              font-size: 16px; } }
         section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount {
           width: 100%;
           text-align: center;
@@ -9839,11 +9895,17 @@ section.clothes-section {
             padding: 0px 5px;
             border-radius: 5px;
             color: white; }
+            @media (max-width: 1600px) {
+              section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
+                font-size: 18px; } }
           section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .price {
             -webkit-animation: priceDisplay ease-in-out 3s infinite;
             animation: priceDisplay ease-in-out 3s infinite;
             font-size: 20px;
             color: #e60073; }
+            @media (max-width: 1600px) {
+              section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .price {
+                font-size: 16px; } }
       section.clothes-section .desktop-w .wrap .item .item-hover {
         position: absolute;
         bottom: 0;
@@ -9851,7 +9913,11 @@ section.clothes-section {
         -webkit-transform: translate(-50%, 54%);
         -ms-transform: translate(-50%, 54%);
         transform: translate(-50%, 54%);
-        z-index: 2; }
+        z-index: 2;
+        text-align: center; }
+        @media (max-width: 1600px) {
+          section.clothes-section .desktop-w .wrap .item .item-hover {
+            width: 65%; } }
         section.clothes-section .desktop-w .wrap .item .item-hover span {
           background-color: #f0a04b;
           color: white;
@@ -9864,6 +9930,9 @@ section.clothes-section {
           -webkit-transition: all ease 0.5s;
           -o-transition: all ease 0.5s;
           transition: all ease 0.5s; }
+          @media (max-width: 1600px) {
+            section.clothes-section .desktop-w .wrap .item .item-hover span {
+              font-size: 16px; } }
   section.clothes-section .clothes-pagination {
     padding-top: 20px; }
     section.clothes-section .clothes-pagination .desktop-w {
@@ -9889,6 +9958,9 @@ section.electronics-banner {
     background-attachment: fixed;
     background-size: 80%;
     background-position-x: 50%; }
+    @media (max-width: 1600px) {
+      section.electronics-banner .background-parallex {
+        background-size: 100%; } }
 
 section.electronics-section {
   border-bottom: 1px solid #eaeaea; }
@@ -9964,6 +10036,9 @@ section.electronics-section {
           -ms-flex-align: end;
           align-items: flex-end;
           opacity: 1; }
+          @media (max-width: 1600px) {
+            section.electronics-section .desktop-w .wrap .item .item-width .product-description h3 {
+              font-size: 16px; } }
         section.electronics-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount {
           margin: 0 auto; }
           section.electronics-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount span {
@@ -9987,7 +10062,11 @@ section.electronics-section {
         -webkit-transform: translate(-50%, 20%);
         -ms-transform: translate(-50%, 20%);
         transform: translate(-50%, 20%);
-        z-index: 2; }
+        z-index: 2;
+        text-align: center; }
+        @media (max-width: 1600px) {
+          section.electronics-section .desktop-w .wrap .item .item-hover {
+            width: 65%; } }
         section.electronics-section .desktop-w .wrap .item .item-hover span {
           background-color: #f0a04b;
           color: white;
@@ -10000,6 +10079,9 @@ section.electronics-section {
           -webkit-transition: all ease 0.5s;
           -o-transition: all ease 0.5s;
           transition: all ease 0.5s; }
+          @media (max-width: 1600px) {
+            section.electronics-section .desktop-w .wrap .item .item-hover span {
+              font-size: 16px; } }
 
 section.jewelry-banner {
   padding: 50px 0 50px 0;
@@ -10037,7 +10119,8 @@ section.jewelry-section {
           width: 100%;
           height: 200px; }
       section.jewelry-section .desktop-w .wrap .item .product-description {
-        text-align: center; }
+        text-align: center;
+        min-height: 105px; }
         section.jewelry-section .desktop-w .wrap .item .product-description h3 {
           text-shadow: 2px 3px 2px silver; }
 
@@ -10047,6 +10130,9 @@ section.brands {
     padding-bottom: 30px; }
   section.brands .desktop-w .brands-icons .block {
     width: 30%; }
+    @media (max-width: 1600px) {
+      section.brands .desktop-w .brands-icons .block {
+        width: 40%; } }
 
 footer .parallex-footer {
   position: relative;
@@ -10105,6 +10191,16 @@ footer .parallex-footer {
         padding-left: 0; }
       footer .parallex-footer .desktop-w .wrap .block.block2 .part.part2 .wrap .item {
         width: 30%; }
+        footer .parallex-footer .desktop-w .wrap .block.block2 .part.part2 .wrap .item ul li a {
+          -webkit-transition: ease 0.5s;
+          -o-transition: ease 0.5s;
+          transition: ease 0.5s; }
+          footer .parallex-footer .desktop-w .wrap .block.block2 .part.part2 .wrap .item ul li a:hover {
+            color: black;
+            padding-left: 10px;
+            -webkit-transition: ease 0.5s;
+            -o-transition: ease 0.5s;
+            transition: ease 0.5s; }
         footer .parallex-footer .desktop-w .wrap .block.block2 .part.part2 .wrap .item.item3 ul li.block .icon {
           width: 10%; }
         footer .parallex-footer .desktop-w .wrap .block.block2 .part.part2 .wrap .item.item3 ul li.block .data {

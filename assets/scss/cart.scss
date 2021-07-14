@@ -1,3 +1,28 @@
+//SET RESPONSIVE CALL WITH @INCLUDE
+$mobile-width: 767px;
+$tablet-width: 768px;
+$laptop-width: 1024px;
+$desktop-width: 1366px;
+@mixin mobile {
+    @media (max-width: #{$mobile-width}){
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width:#{$laptop-width - 1px}){
+        @content;
+    }
+}
+@mixin laptop {
+    @media (max-width:#{$desktop-width}){
+        @content;
+    }
+}
+@mixin desktop {
+    @media (max-width: 1600px){
+        @content;
+    }
+}
 body {
     background: #fff;
     min-height: 100vh;
@@ -71,7 +96,7 @@ body {
 .main {
     margin: 0;
     padding: 2vh 0;
-    width: 100%
+    width: 100%;
 }
 
 .col-2,

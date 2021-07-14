@@ -7,7 +7,7 @@
     <meta name = "description" content = "shopping demo" />
     <meta charset="utf-8">
 
-    <title>MysticT's Shop</title>
+    <title>TruongNguyen's Shop</title>
     
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
@@ -22,7 +22,7 @@
     <header>
         <div class = "header-top sticky" id = "headerTop">
             <div class = "desktop-w desktop-md d-flex">
-                <div class = "col-xxl-4 left">
+                <div class = "col-xl-4 left">
                     <div class = "wrap d-flex">
                             <div class="language-change dropdown">
                                 <a class="btn dropdown-toggle" href="#" role="button" id="languageChange" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,12 +44,12 @@
                             </div>
                     </div>
                 </div>
-                <div class = "col-xxl-4 center">
+                <div class = "col-xl-4 center">
                     <div class = "wrap">
                         <span class = "overlock">Welcome to MysticT Store</span>
                     </div>
                 </div>
-                <div class = "col-xxl-4 right">
+                <div class = "col-xl-4 right">
                     <div class = "wrap d-flex">
                         <div class = "item search-icon">
                             <div class = "img">
@@ -130,7 +130,7 @@
         </div>
         <div class = "header-banner">
             <div class = "desktop-w desktop-md d-flex">
-                <div class = "col-xxl-4 left">
+                <div class = "col-xl-4 left">
                     <div class = "item-width d-flex">
                         <div class = "img">
                             <a href="">
@@ -138,14 +138,16 @@
                             </a>
                         </div>
                         <div class = "email-contact">
-                            <a href="">
+                            <a href="mailto:ng.manhtruong1996@gmail.com">
                                 <h2 class = "overlock">EMAIL ME: </h2>
                             </a>
-                            <p class = "email">ng.manhtruong1996@gmail.com</p>
+                            <a href="mailto:ng.manhtruong1996@gmail.com">
+                                <p class = "email">ng.manhtruong1996@gmail.com</p>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class = "col-xxl-4 center">
+                <div class = "col-xl-4 center">
                     <div class = "img">
                         <a href="index.html">
                             <img src="assets/images/mystict-logo.png" alt="MysticT-shop-logo">
@@ -153,7 +155,7 @@
                         
                     </div>
                 </div>
-                <div class = "col-xxl-4 right">
+                <div class = "col-xl-4 right">
                     <div class = "item-width d-flex">
                         <div class = "img">
                             <a href="">
@@ -161,10 +163,12 @@
                             </a>
                         </div>
                         <div class = "phone-contact">
-                            <a href="">
+                            <a href="tel:+84934686272">
                                 <h2 class = "overlock">CALL ME: </h2>
-                            </a>    
-                            <p class = "phone-number">0934686272</p>
+                            </a>  
+                            <a href="tel:+84934686272">
+                                <p class = "phone-number">0934686272</p>
+                            </a>  
                         </div>
                     </div>
                 </div>
@@ -547,11 +551,11 @@
                             <div class = "wrap d-flex flex-wrap justify-content-evenly">
                                 <div class = "item item1">
                                     <div class = "title">
-                                        <h4 class ="h4-title">PRODUCTS</h4>
+                                        <h4 class ="h4-title">Products</h4>
                                     </div>
                                     <ul>
                                         <li>
-                                            <a href="">Prices</a>
+                                            <a href="product-display.html">Prices</a>
                                         </li>
                                         <li>
                                             <a href="">New products</a>
@@ -566,7 +570,7 @@
                                 </div>
                                 <div class = "item item2">
                                     <div class = "title">
-                                        <h4 class ="h4-title">MY COMPANY</h4>
+                                        <h4 class ="h4-title">My Company</h4>
                                     </div>
                                     <ul>
                                         <li>
@@ -593,7 +597,7 @@
                                                 <img src="assets/images/geo-fill.svg" alt="location-icon">
                                             </div>
                                             <div class = "data">
-                                                <p>Demo Shop</p>
+                                                <a href=""><p>Demo Shop</p></a>
                                             </div>
                                         </li>
                                         <li class= "block d-flex flex-wrap">
@@ -601,7 +605,9 @@
                                                 <img src="assets/images/telephone-fill.svg" alt="phone-icon">
                                             </div>
                                             <div class = "data">
-                                                <p>+84 934 686 272</p>
+                                                <a href="tel:+84934074025">
+                                                    <p>+84 934 686 272</p>
+                                                </a>
                                             </div>
                                         </li>
                                         <li class= "block d-flex flex-wrap">
@@ -609,7 +615,7 @@
                                                 <img src="assets/images/mailbox2.svg" alt="mailbox-icon">
                                             </div>
                                             <div class = "data">
-                                                <a href="">ng.manhtruong1996@gmail.com</a>
+                                                <a href="mailto:ng.manhtruong1996@gmail.com">ng.manhtruong1996@gmail.com</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -664,6 +670,7 @@
         //         $(".loader-wrapper").fadeOut("slow");
         //     }, 500);
         // })
+
         // $(window).on("load",function(){
         //    $(".loader-wrapper").fadeOut("slow");
         // });
@@ -679,27 +686,87 @@
         //parallex clothes controls
         clothParallex = document.querySelector('#clothesParallex');
 
-        //SCROLL EVENT
-        window.addEventListener('scroll',function(){
-            var value = window.scrollY;
-            //console.log(value);
-            //parallex clothes controls
-            if (value > 1800 && value < 3350){
-                let val = (150 - (value-1950)*0.16);
-                if (val > -150){
-                    clothParallex.style.backgroundPositionY = "" + val + "%";
-                }
+        $(document).ready(function () {
+            if ($(window).width() <= 1600) {
+                window.addEventListener('scroll', function () {
+                    var value = window.scrollY;
+                    //parallex clothes controls
+                    if (value > 1225 && value < 3035) {
+                        let val = (180 - (value - 1225) * 0.145);
+                        if (val > -150) {
+                            clothParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                    //parallex electronic controls
+                    if (value > 2265 && value < 4030) {
+                        let val = (180 - (value - 2265) * 0.145);
+                        if (val > -150) {
+                            elecParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                });
             }
-            //parallex electronic controls
-            if (value > 2800 && value < 4450){
-                let val = (150 - (value-2950)*0.15);
-                if (val > -150){
-                    elecParallex.style.backgroundPositionY = "" + val + "%";
-                }
+            if ($(window).width() > 1600) {
+                window.addEventListener('scroll', function () {
+                    var value = window.scrollY;
+                    //parallex clothes controls
+                    if (value > 1800 && value < 3350) {
+                        let val = (150 - (value - 1950) * 0.16);
+                        if (val > -150) {
+                            clothParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                    //parallex electronic controls
+                    if (value > 2800 && value < 4450) {
+                        let val = (150 - (value - 2950) * 0.15);
+                        if (val > -150) {
+                            elecParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                });
             }
         });
-
-
+        
+        $(window).resize(function () {
+            if ($(window).width() <= 1600) {
+                window.addEventListener('scroll', function () {
+                    var value = window.scrollY;
+                    //parallex clothes controls
+                    if (value > 1225 && value < 3035) {
+                        let val = (180 - (value - 1225) * 0.145);
+                        if (val > -150) {
+                            clothParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                    //parallex electronic controls
+                    if (value > 2265 && value < 4030) {
+                        let val = (180 - (value - 2265) * 0.145);
+                        if (val > -150) {
+                            elecParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                });
+            }
+            if ($(window).width() > 1600) {
+                window.addEventListener('scroll', function () {
+                    var value = window.scrollY;
+                    //parallex clothes controls
+                    if (value > 1800 && value < 3350) {
+                        let val = (150 - (value - 1950) * 0.16);
+                        if (val > -150) {
+                            clothParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                    //parallex electronic controls
+                    if (value > 2800 && value < 4450) {
+                        let val = (150 - (value - 2950) * 0.15);
+                        if (val > -150) {
+                            elecParallex.style.backgroundPositionY = "" + val + "%";
+                        }
+                    }
+                });
+            }
+        });
     </script>
     
 </body>

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display Page</title>
-    <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel = "icon" href = "assets/images/mystict-logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="assets/css/productdisplay.css">
@@ -510,37 +509,6 @@
         // $(window).on("load",function(){
         //    $(".loader-wrapper").fadeOut("slow");
         // });
-
-        //SETTINGS FOR BANNER CAROUSEL TO WAIT 2SEC TO CHANGE THE IMAGE
-        const bannerCarousel = document.querySelector("#bannerCarousel");
-        var carousel = new bootstrap.Carousel(bannerCarousel,{
-            interval: 2000
-        });
-
-        //parallex electronic controls
-        elecParallex = document.querySelector('#electronicsParallex');
-        //parallex clothes controls
-        clothParallex = document.querySelector('#clothesParallex');
-
-        //SCROLL EVENT
-        window.addEventListener('scroll',function(){
-            var value = window.scrollY;
-            //console.log(value);
-            //parallex clothes controls
-            if (value > 1800 && value < 3350){
-                let val = (150 - (value-1950)*0.16);
-                if (val > -150){
-                    clothParallex.style.backgroundPositionY = "" + val + "%";
-                }
-            }
-            //parallex electronic controls
-            if (value > 2800 && value < 4450){
-                let val = (150 - (value-2950)*0.13);
-                if (val > -150){
-                    elecParallex.style.backgroundPositionY = "" + val + "%";
-                }
-            }
-        });
 
         //STICKY NAVIGATION BAR
         window.onscroll = function() {

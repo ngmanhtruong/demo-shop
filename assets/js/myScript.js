@@ -481,6 +481,8 @@ searchPerform.addEventListener('click', function(e){
     displayProducts(filteredProduct);
 });
 
+
+
 //hover on search
 $("#mainSearch").hover(
     function() {
