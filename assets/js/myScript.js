@@ -409,12 +409,20 @@ function setList(arr){
 
     for (let product of arr){
         let item = document.createElement('li');
+        let a = document.createElement('a');
         item.classList.add('list-group-item');
         let text = document.createTextNode(product.title);
-        // let att = document.createAttribute("onClick");
-        // att.value = "searchItemClicked("+ product.id +")";
-        item.appendChild(text);
-        // item.setAttributeNode(att);
+        let att = document.createAttribute("onClick");
+        att.value = "productClicked("+ product.id +")";
+        let att2 = document.createAttribute('data-bs-toggle');
+        att2.value = "modal";
+        let att3 = document.createAttribute('data-bs-target');
+        att3.value = "#staticBackdrop";
+        a.appendChild(text);
+        a.setAttributeNode(att);
+        a.setAttributeNode(att2);
+        a.setAttributeNode(att3);
+        item.appendChild(a);
         mainList.appendChild(item);
     }
     if (arr.length === 0){
