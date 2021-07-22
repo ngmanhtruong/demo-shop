@@ -446,22 +446,21 @@ header{
         }
     }
     .header-banner{
-        padding-top: 50px;
+        padding-top: 20px;
         border-bottom: 1px solid#eaeaea;
-        @include desktop{
-            padding-top: 40px;
-        }
-        @include tablet{
-            padding-top: 50px;
-            margin-bottom: 20px;
-        }
         .desktop-md{
             .left{
                 justify-content: left;
                 align-items: center;
                 display: flex;
+                @include tablet{
+                    width: 50%;
+                }
                 .item-width{
                     width: 50%;
+                    @include tablet{
+                        width: 100%;
+                    }
                     .img{
                         width: 30%;
                     }
@@ -479,12 +478,17 @@ header{
                             font-size: 18px;
                             letter-spacing: .4px;
                             margin-bottom: 0px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
                         }
                     }
                 }
             }
             .center{
                 margin: 0 auto;
+                @include tablet{
+                    width: 0;
+                }
                 .img{
                     width: 50%;
                     margin: 0 auto;
@@ -497,8 +501,15 @@ header{
                 justify-content: flex-end;
                 align-items: center;
                 display: flex;
+                @include tablet{
+                    width: 50%;
+                }
                 .item-width{
                     width: 50%;
+                    @include tablet{
+                        flex-direction: row-reverse;
+                        width: 100%;
+                    }
                     .img{
                         width: 30%;
                     }
@@ -506,6 +517,13 @@ header{
                         width: 70%;
                         padding-left: 20px;
                         padding-top: 10px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        @include tablet{
+                            text-align: right;
+                            padding-left: 0;
+                            padding-right: 20px;
+                        }
                         h2{
                             font-size: 18px;
                             font-weight: bold;
@@ -685,22 +703,24 @@ a.scrolldown-hover{
 section{
     &.banner{
         padding-bottom: 30px;
-        overflow-x:hidden;
+        overflow-x: hidden;
         &:hover{
             .carousel-control-prev-icon{
                 opacity: 1 !important;
-                -webkit-transform: translateX(-4rem) !important;
-                -ms-transform: translateX(-4rem) !important;
                 transform: translateX(-4rem) !important;
                 transition: all .8s;  
+                @include tablet{
+                    transform: translateX(0) !important;
+                }
 
             }
             .carousel-control-next-icon{
                 opacity: 1 !important;
-                -webkit-transform: translateX(4rem) !important;
-                -ms-transform: translateX(4rem) !important;
                 transform: translateX(4rem) !important;
                 transition: all .8s; 
+                @include tablet{
+                    transform: translateX(0) !important;
+                }
             }
         }
         .desktop-md{
@@ -708,10 +728,13 @@ section{
                 .carousel-inner{
                     height: 750px;
                     @include desktop{
-                        height: 650px;
+                        height: 500px;
                     }
                     @include tablet{
                         height: 500px;
+                    }
+                    @include mobile{
+                        height: 300px;
                     }
                 }
                 .carousel-control-prev{
@@ -752,6 +775,9 @@ section{
             height: 485px;
             @include desktop{        
                 height: 400px;
+            }
+            @include mobile{
+                height: 300px;
             }
             .block{
                 width: calc(33% - 10px);
@@ -821,6 +847,9 @@ section{
                 width: calc(25% - 20px);
                 padding-bottom: 20px;
                 position: relative;
+                @include laptop{
+                    width: calc(25% - 5px);
+                }
                 @include tablet{
                     width: calc(32%);
                     margin-right: 7px;
@@ -895,6 +924,9 @@ section{
                             .regular-price{
                                 text-decoration: line-through;
                                 color: #943d24;
+                                @include laptop{
+                                    display: none;
+                                }
                             }
                             .discount-percentage{
                                 background: red;
@@ -906,13 +938,16 @@ section{
                                 @include desktop{
                                     font-size: 18px;
                                 }
+                                @include laptop{
+                                    font-size: 16px;
+                                }
                             }
                             .price{
                                 animation: priceDisplay ease-in-out 3s infinite;
                                 font-size: 20px;
                                 color: #f0a04b;
                                 @include desktop{
-                                    font-size: 16px;
+                                    font-size: 14px;
                                 }
                             }
                         }
@@ -959,6 +994,9 @@ section{
                 @include desktop{
                     background-size: 100%;
                 }
+                @include tablet{
+                    background-size: cover;
+                }
                 .content{
                     text-align: center;
                     padding: 200px 0;
@@ -970,6 +1008,7 @@ section{
                     }
                     @include tablet{
                         padding: 100px 0;
+                        width: 40%;
                     }
                     .title{
                         h2{
@@ -1032,6 +1071,9 @@ section{
                     width: calc(20% - 20px);
                     padding-bottom: 20px;
                     position: relative;
+                    @include laptop{
+                        width: calc(20% - 5px);
+                    }
                     @include tablet{
                         width: 32%;
                         margin-right: 7px;
@@ -1102,6 +1144,9 @@ section{
                                 .regular-price{
                                     text-decoration: line-through;
                                     color: #943d24;
+                                    @include laptop{
+                                        display: none;
+                                    }
                                 }
                                 .discount-percentage{
                                     background: red;
@@ -1191,6 +1236,9 @@ section{
             background-position-x: 50%;
             @include desktop{
                 background-size: 100%;
+            }
+            @include tablet{
+                background-size: cover;
             }
         }
     }

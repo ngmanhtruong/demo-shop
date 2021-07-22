@@ -124,9 +124,17 @@ function displayClothes(arr){
     let clothesCount = 1;
     whichPageIsIt = 1; //PAGE 1
     let re = /(clothing)/;
+    let re2 = /(Removable)/;
+    let re3 = /(3-in-1)/;
     let discount = getRndInteger();
     for (product of arr){
         if(re.test(product.category) && product.id != 1 && clothesCount < 6){
+            if(re2.test(product.title)){
+                product.title = "Removable Hooded Faux Leather";
+            }
+            if(re3.test(product.title)){
+                product.title = "Snowboard Jacket Winter Coats";
+            }
             let price = (product.price - product.price*discount/100).toFixed(2);
             clothesCount++;
             output += `
@@ -163,9 +171,25 @@ function displayClothesPage2(arr){
     let clothesCount = 1;
     whichPageIsIt = 2; //PAGE 2
     let re = /(clothing)/;
+    let re4 = /(Windbreaker Striped)/;
+    let re5 = /(Solid Short Sleeve)/;
+    let re6 = /(Moisture)/;
+    let re7 = /(Womens T Shirt Casual)/;
     let discount = getRndInteger();
     for (product of arr){
         if(re.test(product.category) && product.id != 1){
+            if(re4.test(product.title)){
+                product.title = "Climbing Raincoats";
+            }
+            if(re5.test(product.title)){
+                product.title = "Solid Short Sleeve";
+            }
+            if(re6.test(product.title)){
+                product.title = "Short Sleeve Moisture";
+            }
+            if(re7.test(product.title)){
+                product.title = "Casual Cotton Short";
+            }
             let price = (product.price - product.price*discount/100).toFixed(2);
             clothesCount++;
             if(clothesCount > 6){

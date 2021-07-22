@@ -20,7 +20,7 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
     <header>
-        <div class = "header-top sticky" id = "headerTop">
+        <div class = "header-top" id = "headerTop">
             <div class = "desktop-w desktop-md d-flex">
                 <div class = "col-xl-4 left">
                     <div class = "wrap d-flex isPc">
@@ -711,6 +711,21 @@
         var carousel = new bootstrap.Carousel(bannerCarousel,{
             interval: 2000
         });
+
+        window.onscroll = function() {
+            stickyNavbar();
+        };
+        var realNavbar = document.querySelector('#headerTop');
+        var navbar = document.querySelector(".header-banner");
+        var sticky = navbar.offsetTop;
+
+        function stickyNavbar(){
+            if (window.pageYOffset >= sticky){
+                realNavbar.classList.add('sticky');
+            } else{
+                realNavbar.classList.remove('sticky');
+            }
+        }
 
         //parallex electronic controls
         elecParallex = document.querySelector('#electronicsParallex');

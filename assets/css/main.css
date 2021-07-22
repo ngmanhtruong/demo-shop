@@ -9375,15 +9375,8 @@ header .header-top {
     transition: all 0.3s ease-in-out 0s; }
 
 header .header-banner {
-  padding-top: 50px;
+  padding-top: 20px;
   border-bottom: 1px solid #eaeaea; }
-  @media (max-width: 1600px) {
-    header .header-banner {
-      padding-top: 40px; } }
-  @media (max-width: 1023px) {
-    header .header-banner {
-      padding-top: 50px;
-      margin-bottom: 20px; } }
   header .header-banner .desktop-md .left {
     -webkit-box-pack: left;
     -ms-flex-pack: left;
@@ -9394,8 +9387,14 @@ header .header-banner {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
+    @media (max-width: 1023px) {
+      header .header-banner .desktop-md .left {
+        width: 50%; } }
     header .header-banner .desktop-md .left .item-width {
       width: 50%; }
+      @media (max-width: 1023px) {
+        header .header-banner .desktop-md .left .item-width {
+          width: 100%; } }
       header .header-banner .desktop-md .left .item-width .img {
         width: 30%; }
       header .header-banner .desktop-md .left .item-width .email-contact {
@@ -9410,9 +9409,15 @@ header .header-banner {
           color: #888;
           font-size: 18px;
           letter-spacing: .4px;
-          margin-bottom: 0px; }
+          margin-bottom: 0px;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+          text-overflow: ellipsis; }
   header .header-banner .desktop-md .center {
     margin: 0 auto; }
+    @media (max-width: 1023px) {
+      header .header-banner .desktop-md .center {
+        width: 0; } }
     header .header-banner .desktop-md .center .img {
       width: 50%;
       margin: 0 auto; }
@@ -9429,14 +9434,32 @@ header .header-banner {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
+    @media (max-width: 1023px) {
+      header .header-banner .desktop-md .right {
+        width: 50%; } }
     header .header-banner .desktop-md .right .item-width {
       width: 50%; }
+      @media (max-width: 1023px) {
+        header .header-banner .desktop-md .right .item-width {
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+          width: 100%; } }
       header .header-banner .desktop-md .right .item-width .img {
         width: 30%; }
       header .header-banner .desktop-md .right .item-width .phone-contact {
         width: 70%;
         padding-left: 20px;
-        padding-top: 10px; }
+        padding-top: 10px;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
+        @media (max-width: 1023px) {
+          header .header-banner .desktop-md .right .item-width .phone-contact {
+            text-align: right;
+            padding-left: 0;
+            padding-right: 20px; } }
         header .header-banner .desktop-md .right .item-width .phone-contact h2 {
           font-size: 18px;
           font-weight: bold;
@@ -9659,6 +9682,11 @@ section.banner {
     -webkit-transition: all .8s;
     -o-transition: all .8s;
     transition: all .8s; }
+    @media (max-width: 1023px) {
+      section.banner:hover .carousel-control-prev-icon {
+        -webkit-transform: translateX(0) !important;
+        -ms-transform: translateX(0) !important;
+        transform: translateX(0) !important; } }
   section.banner:hover .carousel-control-next-icon {
     opacity: 1 !important;
     -webkit-transform: translateX(4rem) !important;
@@ -9667,14 +9695,22 @@ section.banner {
     -webkit-transition: all .8s;
     -o-transition: all .8s;
     transition: all .8s; }
+    @media (max-width: 1023px) {
+      section.banner:hover .carousel-control-next-icon {
+        -webkit-transform: translateX(0) !important;
+        -ms-transform: translateX(0) !important;
+        transform: translateX(0) !important; } }
   section.banner .desktop-md #bannerCarousel .carousel-inner {
     height: 750px; }
     @media (max-width: 1600px) {
       section.banner .desktop-md #bannerCarousel .carousel-inner {
-        height: 650px; } }
+        height: 500px; } }
     @media (max-width: 1023px) {
       section.banner .desktop-md #bannerCarousel .carousel-inner {
         height: 500px; } }
+    @media (max-width: 767px) {
+      section.banner .desktop-md #bannerCarousel .carousel-inner {
+        height: 300px; } }
   section.banner .desktop-md #bannerCarousel .carousel-control-prev {
     -webkit-box-pack: normal;
     -ms-flex-pack: normal;
@@ -9718,6 +9754,9 @@ section.clothes-discount-banner {
     @media (max-width: 1600px) {
       section.clothes-discount-banner .wrap {
         height: 400px; } }
+    @media (max-width: 767px) {
+      section.clothes-discount-banner .wrap {
+        height: 300px; } }
     section.clothes-discount-banner .wrap .block {
       width: calc(33% - 10px); }
       @media (max-width: 1023px) {
@@ -9780,6 +9819,9 @@ section.trending-products {
       width: calc(25% - 20px);
       padding-bottom: 20px;
       position: relative; }
+      @media (max-width: 1366px) {
+        section.trending-products .wrap .item {
+          width: calc(25% - 5px); } }
       @media (max-width: 1023px) {
         section.trending-products .wrap .item {
           width: calc(32%);
@@ -9850,6 +9892,9 @@ section.trending-products {
           section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .regular-price {
             text-decoration: line-through;
             color: #943d24; }
+            @media (max-width: 1366px) {
+              section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .regular-price {
+                display: none; } }
           section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
             background: red;
             border: 1px solid red;
@@ -9860,6 +9905,9 @@ section.trending-products {
             @media (max-width: 1600px) {
               section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
                 font-size: 18px; } }
+            @media (max-width: 1366px) {
+              section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
+                font-size: 16px; } }
           section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .price {
             -webkit-animation: priceDisplay ease-in-out 3s infinite;
             animation: priceDisplay ease-in-out 3s infinite;
@@ -9867,7 +9915,7 @@ section.trending-products {
             color: #f0a04b; }
             @media (max-width: 1600px) {
               section.trending-products .wrap .item .item-width .product-description .product-price-and-discount .price {
-                font-size: 16px; } }
+                font-size: 14px; } }
       section.trending-products .wrap .item .item-hover {
         position: absolute;
         bottom: 0;
@@ -9908,6 +9956,9 @@ section.clothes-banner {
     @media (max-width: 1600px) {
       section.clothes-banner .desktop-md .background-parallex {
         background-size: 100%; } }
+    @media (max-width: 1023px) {
+      section.clothes-banner .desktop-md .background-parallex {
+        background-size: cover; } }
     section.clothes-banner .desktop-md .background-parallex .content {
       text-align: center;
       padding: 200px 0;
@@ -9919,7 +9970,8 @@ section.clothes-banner {
           padding: 150px 0; } }
       @media (max-width: 1023px) {
         section.clothes-banner .desktop-md .background-parallex .content {
-          padding: 100px 0; } }
+          padding: 100px 0;
+          width: 40%; } }
       section.clothes-banner .desktop-md .background-parallex .content .title h2 {
         font-size: 50px;
         font-weight: bold; }
@@ -9977,6 +10029,9 @@ section.clothes-section {
       width: calc(20% - 20px);
       padding-bottom: 20px;
       position: relative; }
+      @media (max-width: 1366px) {
+        section.clothes-section .desktop-w .wrap .item {
+          width: calc(20% - 5px); } }
       @media (max-width: 1023px) {
         section.clothes-section .desktop-w .wrap .item {
           width: 32%;
@@ -10047,6 +10102,9 @@ section.clothes-section {
           section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .regular-price {
             text-decoration: line-through;
             color: #943d24; }
+            @media (max-width: 1366px) {
+              section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .regular-price {
+                display: none; } }
           section.clothes-section .desktop-w .wrap .item .item-width .product-description .product-price-and-discount .discount-percentage {
             background: red;
             border: 1px solid red;
@@ -10120,6 +10178,9 @@ section.electronics-banner {
     @media (max-width: 1600px) {
       section.electronics-banner .background-parallex {
         background-size: 100%; } }
+    @media (max-width: 1023px) {
+      section.electronics-banner .background-parallex {
+        background-size: cover; } }
 
 section.electronics-section {
   border-bottom: 1px solid #eaeaea; }
