@@ -23,30 +23,43 @@
         <div class = "header-top sticky" id = "headerTop">
             <div class = "desktop-w desktop-md d-flex">
                 <div class = "col-xl-4 left">
-                    <div class = "wrap d-flex">
-                            <div class="language-change dropdown">
-                                <a class="btn dropdown-toggle" href="#" role="button" id="languageChange" data-bs-toggle="dropdown" aria-expanded="false">
-                                    ENGLISH
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="languageChange">
-                                    <li><a class="dropdown-item">ENGLISH</a></li>
-                                    <li><a class="dropdown-item">VIETNAMESE</a></li>
-                                </ul>
+                    <div class = "wrap d-flex isPc">
+                        <div class="language-change dropdown">
+                            <a class="btn dropdown-toggle" href="#" role="button" id="languageChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                ENGLISH
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageChange">
+                                <li><a class="dropdown-item">ENGLISH</a></li>
+                                <li><a class="dropdown-item">VIETNAMESE</a></li>
+                            </ul>
+                        </div>
+                        <div class="currency-change dropdown">
+                            <a class="btn dropdown-toggle" href="#" role="button" id="currencyChange" data-bs-toggle="dropdown" aria-expanded="false">
+                                USD &dollar;
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="currencyChange">
+                                <li><a class="dropdown-item">USD</a></li>
+                                <li><a class="dropdown-item">VND</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class = "isMobile">
+                        <div class = "menu-wrapper-mobile">
+                            <div class = "img">
+                                <img src="assets/images/list-menu.svg" alt="list-menu">
                             </div>
-                            <div class="currency-change dropdown">
-                                <a class="btn dropdown-toggle" href="#" role="button" id="currencyChange" data-bs-toggle="dropdown" aria-expanded="false">
-                                    USD &dollar;
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="currencyChange">
-                                    <li><a class="dropdown-item">USD</a></li>
-                                    <li><a class="dropdown-item">VND</a></li>
-                                </ul>
+                            <div class = "menu-text">
+                                <p class = "overlock">MENU</p>
                             </div>
+                        </div>
                     </div>
                 </div>
                 <div class = "col-xl-4 center">
                     <div class = "wrap">
-                        <span class = "overlock">Welcome to MysticT Store</span>
+                        <span class = "overlock isPc">Welcome to MysticT Store</span>
+                        <div class = "img isMobile">
+                            <img src="assets/images/mystict-logo.png" alt="shoplogo">
+                        </div>
                     </div>
                 </div>
                 <div class = "col-xl-4 right">
@@ -127,6 +140,25 @@
                     </div>
                 </div>
             </div>
+            <div class = "mobile-overlay">
+
+            </div>
+            <div class = "menu-mobile isMobile">
+                <div class = "wrap">
+                    <ul id = "menuMobile">
+                        <li class = "menu">MENU <a class = "closeMenuMobile"><img src="assets/images/x-circle.svg" alt="closeMenu"></a></li>
+                        <li class = "has-sub"><a>Clothes</a>
+                            <ul>
+                                <li><a href="product-display.html">Men's Clothing</a></li>
+                                <li><a href="product-display.html">Women's Clothing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Eletronics</a></li>
+                        <li><a href="">Jewelry</a></li>
+                        <li><a href="product-display.html">Products</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class = "header-banner">
             <div class = "desktop-w desktop-md d-flex">
@@ -147,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class = "col-xl-4 center">
+                <div class = "col-xl-4 center isPc">
                     <div class = "img">
                         <a href="index.html">
                             <img src="assets/images/mystict-logo.png" alt="MysticT-shop-logo">
@@ -168,15 +200,14 @@
                             </a>  
                             <a href="tel:+84934686272">
                                 <p class = "phone-number">0934686272</p>
-                            </a>  
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </header>
-    <div class = "menu-navigator">
+    <div class = "menu-navigator isPc">
         <div class = "desktop-w desktop-md d-flex">
             <div class = "menu d-flex justify-content-center" id="_desktop_top_menu">
                 <ul class="nav">
@@ -487,7 +518,7 @@
     <footer>
         <div class = "parallex-footer">
             <div class = "desktop-w desktop-md">
-                <div class = "wrap d-flex flex-wrap">
+                <div class = "wrapper d-flex flex-wrap">
                     <div class = "block block1 d-flex flex-wrap">
                         <div class = "my-brand">
                             <div class = "img">
@@ -767,6 +798,21 @@
                 });
             }
         });
+        $('.menu-wrapper-mobile').click(function(){
+            $('.menu-mobile').addClass('activate');
+        });
+        $('.closeMenuMobile').click(function(){
+            $('.menu-mobile').removeClass('activate');
+        });
+        $(".menu-wrapper-mobile").hover(
+            function () {
+                $('.menu-mobile').addClass('activate');
+            }, function () {
+                setTimeout(function () {
+                    $('.menu-mobile').removeClass('activate');
+                }, 100);
+            }
+        );
     </script>
     
 </body>

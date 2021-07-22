@@ -492,22 +492,30 @@ searchPerform.addEventListener('click', function(e){
 
 
 //hover on search
-$("#mainSearch").hover(
+$(".search-icon").click(function(e){
+    if ($('#mainSearchDisplay').hasClass('enabled')){
+        $('#mainSearchDisplay').removeClass('enabled');
+    }
+    else{
+        $('#mainSearchDisplay').addClass('enabled');
+    }
+});
+$("#mainSearchDisplay").click(function(e){
+    e.stopPropagation();
+});
+$(".search-icon").hover(
     function() {
         $('#mainSearchDisplay').addClass('enabled');
     }, function() {
-        setTimeout(2000, function(){
-            $('#mainSearchDisplay').removeClass('enabled');
-        });
+        $('#mainSearchDisplay').removeClass('enabled');
     }
 );
 
 $("#mainSearchDisplay").hover(
     function() {
-      $('#mainSearchDisplay').addClass('enabled');
+        $('#mainSearchDisplay').addClass('enabled');
     }, function() {
-        setTimeout(function(){
-            $('#mainSearchDisplay').removeClass('enabled');
-        },500);
+        $('#mainSearchDisplay').removeClass('enabled');
     }
 );
+

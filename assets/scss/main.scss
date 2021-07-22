@@ -97,6 +97,18 @@ $desktop-width: 1366px;
         @content;
     }
 }
+.isPc{
+    display: block;
+    @include tablet{
+        display: none !important;
+    }
+}
+.isMobile{
+    display: none;
+    @include tablet{
+        display: block !important;
+    }
+}
 .disabled{
     display: none;
     opacity: 0;
@@ -167,6 +179,10 @@ $desktop-width: 1366px;
 .desktop-md{
     width: 80%;
     max-width: 1500px;
+    @include tablet{
+        width: 100%;
+        padding: 0 10px;
+    }
 }
 
 *{
@@ -221,40 +237,70 @@ header{
         .desktop-md{
             align-items: center;
             .left{
-                text-align: left;
-                a{
-                    &:hover{
-                        cursor: pointer;
+                width: 33%;
+                .isPc{
+                    text-align: left;
+                    a{
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    a.btn{
+                        border: none;
+                    }
+                    ul.dropdown-menu{
+                        background: #f5eec2;
+                        border-radius: 0;
+                        border: none;
+                        text-align: center;
+                    }
+                    ul.dropdown-menu.show{
+                        transform: translate(-50%, 50%) !important;
+                        left: 50% !important;
                     }
                 }
-                a.btn{
-                    border: none;
-                }
-                ul.dropdown-menu{
-                    background: #f5eec2;
-                    border-radius: 0;
-                    border: none;
-                    text-align: center;
-                }
-                ul.dropdown-menu.show{
-                    transform: translate(-50%, 50%) !important;
-                    left: 50% !important;
+                .isMobile{
+                    .menu-wrapper-mobile{
+                        display: flex;
+                        flex-wrap: wrap;
+                        .img{
+                            width: 15%;
+                        }
+                        .menu-text{
+                            width: 50%;
+                            font-size: 18px;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center;
+                            p{
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
                 }
             }   
             .center{
+                width: 33%;
                 text-align: center;
                 span{
                     font-size: 20px;
                     font-weight: bold;
                 }
+                .img{
+                    padding: 0px 120px;
+                }
             }
             .right{
+                width: 33%;
                 .wrap{
                     justify-content: flex-end;
                     .item{
                         width: 10%;
                         margin-left: 20px;
                         padding: 5px;
+                        @include tablet{
+                            width: 15%;
+                        }
                         &.search-icon{
                             position: relative;
                             #mainSearchDisplay{
@@ -336,12 +382,78 @@ header{
                 }
             }
         }
+        .mobile-overlay{
+            background: rgba(0,0,0,.7) none repeat scroll 0 0;
+            bottom: 0;
+            left: 0;
+            min-height: 100vh;
+            position: fixed;
+            right: 0;
+            top: 0;
+            transition: all 0.3s ease-in-out 0s;
+            display: none;
+        }
+        .menu-mobile{
+            background: #f5eec2 none repeat scroll 0 0;
+            bottom: 0;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            transform: translate3d(-400px,0,0);
+            transition: all 0.3s ease-in-out 0s;
+            z-index: 999;
+            .wrap{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                padding: 0px 20px;
+                text-align: left;
+                a{
+                    font-size: 18px;
+                    color: #333;
+                }
+                ul{
+                    padding-left: 10px;
+                    ul{
+                        display: none;
+                    }
+                    li.menu{
+                        font-weight: bold;
+                        text-align: center;
+                        font-size: 22px;
+                        position: relative;
+                        a{
+                            position: absolute;
+                            right: 0;
+                            img{
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                ul#menuMobile li:not(.no-hover):hover{
+                    ul{
+                        display: block !important;
+                    }
+                }
+            }
+        }
+        .activate{
+            transform: translate3d(0,0,0) !important;
+            transition: all 0.3s ease-in-out 0s;
+        }
     }
     .header-banner{
         padding-top: 50px;
         border-bottom: 1px solid#eaeaea;
         @include desktop{
             padding-top: 40px;
+        }
+        @include tablet{
+            padding-top: 50px;
+            margin-bottom: 20px;
         }
         .desktop-md{
             .left{
@@ -425,15 +537,15 @@ header{
 @keyframes priceDisplay{
     0%{
         transform: scale(0.9);
-        color: #e60073;
+        color: #f0a04b;
     }
     50%{
         transform: scale(1.2);
-        color: #ff4da6;
+        color: #fd8301;
     }
     0%{
         transform: scale(0.9);
-        color: #e60073;
+        color: #f0a04b;
     }
 }
 @keyframes fadeInDown{
@@ -539,6 +651,7 @@ header{
 .sticky {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 99;
     animation: fadeInDown 1s ease forwards;
@@ -572,6 +685,7 @@ a.scrolldown-hover{
 section{
     &.banner{
         padding-bottom: 30px;
+        overflow-x:hidden;
         &:hover{
             .carousel-control-prev-icon{
                 opacity: 1 !important;
@@ -595,6 +709,9 @@ section{
                     height: 750px;
                     @include desktop{
                         height: 650px;
+                    }
+                    @include tablet{
+                        height: 500px;
                     }
                 }
                 .carousel-control-prev{
@@ -638,6 +755,9 @@ section{
             }
             .block{
                 width: calc(33% - 10px);
+                @include tablet{
+                    width: calc(49%);
+                }
                 &.block{
                     height: inherit;
                     .img{
@@ -648,6 +768,11 @@ section{
                                 height: inherit;
                             }
                         }
+                    }
+                }
+                &.block2{
+                    @include tablet{
+                        display: none;
                     }
                 }
             }
@@ -689,10 +814,20 @@ section{
         .wrap{
             flex-wrap: wrap;
             justify-content: space-between;
+            @include tablet{
+                justify-content: unset;
+            }
             .item{
                 width: calc(25% - 20px);
                 padding-bottom: 20px;
                 position: relative;
+                @include tablet{
+                    width: calc(32%);
+                    margin-right: 7px;
+                }
+                @include mobile{
+                    width: calc(49% - 7px);
+                }
                 &:hover{
                     cursor: pointer;
                     .item-hover{
@@ -775,7 +910,7 @@ section{
                             .price{
                                 animation: priceDisplay ease-in-out 3s infinite;
                                 font-size: 20px;
-                                color: #e60073;
+                                color: #f0a04b;
                                 @include desktop{
                                     font-size: 16px;
                                 }
@@ -833,10 +968,16 @@ section{
                     @include desktop{
                         padding: 150px 0;
                     }
+                    @include tablet{
+                        padding: 100px 0;
+                    }
                     .title{
                         h2{
                             font-size: 50px;
                             font-weight: bold;
+                            @include tablet{
+                                font-size: 35px;
+                            }
                         }
                     }
                     .text{
@@ -845,6 +986,12 @@ section{
                             font-size: 25px;
                             color: #242f3f;
                             margin-bottom: 0px;
+                            @include tablet{
+                                font-size: 20px;
+                            }
+                            &:nth-last-child(){
+                                color: #f0a04b;
+                            }
                         }
                     }
                     span{
@@ -878,10 +1025,20 @@ section{
         .desktop-w{
             .wrap{
                 justify-content: space-between;
+                @include tablet{
+                    justify-content: unset !important;
+                }
                 .item{
                     width: calc(20% - 20px);
                     padding-bottom: 20px;
                     position: relative;
+                    @include tablet{
+                        width: 32%;
+                        margin-right: 7px;
+                    }
+                    @include mobile{
+                        width: calc(49% - 7px);
+                    }
                     &:hover{
                         cursor: pointer;
                         .item-hover{
@@ -906,7 +1063,7 @@ section{
                             padding: 0px 30px;
                             margin-bottom: 10px;
                             @include desktop{
-                                height: 230px;
+                                height: 250px;
                             }
                             a{
                                 height: inherit;
@@ -960,7 +1117,7 @@ section{
                                 .price{
                                     animation: priceDisplay ease-in-out 3s infinite;
                                     font-size: 20px;
-                                    color: #e60073;
+                                    color: #f0a04b;
                                     @include desktop{
                                         font-size: 16px;
                                     }
@@ -1070,10 +1227,20 @@ section{
             }
             .wrap{
                 justify-content: space-between;
+                @include tablet{
+                    justify-content: unset;
+                }
                 .item{
                     position: relative;
                     width: 27%;
                     padding-bottom: 45px;
+                    @include tablet{
+                        width: 32%;
+                        margin-right: 7px;
+                    }
+                    @include mobile{
+                        width: calc(49% - 7px);
+                    }
                     &:hover{
                         cursor: pointer;
                         .item-hover{
@@ -1186,11 +1353,22 @@ section{
         .desktop-w{
             .wrap{
                 justify-content: space-between;
+                @include tablet{
+                    justify-content: space-around;
+                }
                 .item{
                     width: calc(20% - 10px);
+                    @include tablet{
+                        width: calc(40% - 10px);
+                        padding-bottom: 20px;
+                    }
                     .img{
                         position: relative;
                         height: 200px;
+                        @include tablet{
+                            width: 60%;
+                            margin: auto;
+                        }
                         a{
                             height: inherit;
                             cursor: pointer;
@@ -1243,6 +1421,9 @@ footer{
     .parallex-footer{
         position: relative;
         padding: 100px 0;
+        @include mobile{
+            padding: 50px 0;
+        }
         &:before{
             content: ' ';
             display: block;
@@ -1260,13 +1441,23 @@ footer{
             z-index: -1;
         }
         .desktop-w{
-            .wrap{ 
+            .wrapper{ 
+                @include mobile{
+                    flex-direction: column-reverse;
+                }
                 .block{
                     &.block1{
                         width: 30%;
                         border-right: 1px solid#888;  
+                        @include mobile{
+                            width: 100%;
+                            justify-content: center;
+                        }
                         .my-brand{
                             border-bottom: 1px solid#888; 
+                            @include mobile{
+                                display: none;
+                            }
                             .img{
                                 img{
                                     margin: auto;
@@ -1295,6 +1486,9 @@ footer{
                     }
                     &.block2{
                         width: 70%;
+                        @include mobile{
+                            width: 100%;
+                        }
                         .part{
                             .wrap{
                                 .item{
@@ -1329,6 +1523,9 @@ footer{
                                             li{
                                                 a{
                                                     transition: ease 0.5s;
+                                                    @include mobile{
+                                                        color: black;
+                                                    }
                                                     &:hover{
                                                         color: black;
                                                         padding-left: 10px;
@@ -1346,6 +1543,8 @@ footer{
                                                     .data{
                                                         width: 90%;
                                                         padding-left: 10px;
+                                                        overflow: hidden;
+                                                        text-overflow: ellipsis;
                                                     }
                                                 }
                                             }

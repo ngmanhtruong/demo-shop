@@ -112,30 +112,34 @@ function deleteCartProduct(getIndex){
         localStorage["cartData"] = JSON.stringify(cartData);
         storedData = JSON.parse(localStorage["cartData"]);
         displayCartItems(storedData);
-        reload = location.reload();
     }
 }
 
-$("#cartContainer").hover(
+$(".go-to-cart").click(function(){
+    if ($('#cartDisplay').hasClass('enabled')){
+        $('#cartDisplay').removeClass('enabled');
+    }
+    else{
+        $('#cartDisplay').addClass('enabled');
+    }
+});
+$("#cartDisplay").click(function(e){
+    e.stopPropagation();
+});
+$(".go-to-cart").hover(
     function() {
         $('#cartDisplay').addClass('enabled');
     }, function() {
-        setTimeout(2000, function(){
-            $('#cartDisplay').removeClass('enabled');
-        });
+        $('#cartDisplay').removeClass('enabled');
     }
 );
-
 $("#cartDisplay").hover(
     function() {
-      $('#cartDisplay').addClass('enabled');
+        $('#cartDisplay').addClass('enabled');
     }, function() {
-        setTimeout(function(){
-            $('#cartDisplay').removeClass('enabled');
-        },500);
+        $('#cartDisplay').removeClass('enabled');
     }
 );
-
 
 function moveToCheckout(){
     if(confirm('Proceed to check out?')) window.open('../cart.html'); return false;
