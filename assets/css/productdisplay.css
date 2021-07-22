@@ -27,6 +27,10 @@ a {
 section.filter {
   width: 30%;
   padding: 0 10px; }
+  @media (max-width: 1023px) {
+    section.filter {
+      width: 100%;
+      padding: 0 0 20px 0; } }
   section.filter .filter-by-category {
     padding-bottom: 10px; }
     section.filter .filter-by-category .wrap {
@@ -62,6 +66,9 @@ section.filter {
         font-style: oblique; }
       section.filter .filters .wrap .sort.sort-by-price-range select {
         background: #f5eec2; }
+        @media (max-width: 1366px) {
+          section.filter .filters .wrap .sort.sort-by-price-range select {
+            width: 200px; } }
         section.filter .filters .wrap .sort.sort-by-price-range select option {
           background: #f5eec2; }
           section.filter .filters .wrap .sort.sort-by-price-range select option:hover {
@@ -78,6 +85,10 @@ section.display {
   padding: 0 10px;
   font-size: 16px;
   color: #1f1c1c; }
+  @media (max-width: 1023px) {
+    section.display {
+      width: 100%;
+      padding: 0 0 20px 0; } }
   section.display .display-which-is-selected {
     padding-bottom: 30px; }
     section.display .display-which-is-selected .wrap {
@@ -128,6 +139,14 @@ section.display {
       padding-bottom: 40px;
       position: relative;
       margin-right: 20px; }
+      @media (max-width: 1023px) {
+        section.display .display-products .wrap .item {
+          width: calc(33% - 20px);
+          margin-right: 20px; } }
+      @media (max-width: 767px) {
+        section.display .display-products .wrap .item {
+          width: calc(45% - 10px);
+          margin-right: 10px; } }
       section.display .display-products .wrap .item:hover {
         cursor: pointer; }
         section.display .display-products .wrap .item:hover .item-hover span {
@@ -147,18 +166,27 @@ section.display {
         height: 235px;
         padding: 0px 30px;
         margin-bottom: 10px; }
+        @media (max-width: 1366px) {
+          section.display .display-products .wrap .item .item-width .img {
+            padding: 0; } }
         section.display .display-products .wrap .item .item-width .img a {
           height: inherit; }
         section.display .display-products .wrap .item .item-width .img img {
           height: inherit; }
       section.display .display-products .wrap .item .item-width .product-description {
         background-color: #f5f0d5;
-        height: 120px;
+        height: 80px;
         border-radius: 5px;
         padding: 0px 10px;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         color: #888; }
+        @media (max-width: 1366px) {
+          section.display .display-products .wrap .item .item-width .product-description {
+            height: 100px; } }
+        @media (max-width: 767px) {
+          section.display .display-products .wrap .item .item-width .product-description {
+            height: 80px; } }
         section.display .display-products .wrap .item .item-width .product-description h3 {
           font-size: 16px;
           text-align: center;
@@ -206,6 +234,9 @@ section.display {
         transform: translate(-50%, 0%);
         z-index: 2;
         width: 70%; }
+        @media (max-width: 1366px) {
+          section.display .display-products .wrap .item .item-hover {
+            width: 80%; } }
         section.display .display-products .wrap .item .item-hover span {
           background-color: #f0a04b;
           color: white;
@@ -219,6 +250,12 @@ section.display {
           -o-transition: all ease 0.5s;
           transition: all ease 0.5s;
           text-align: center; }
+          @media (max-width: 1600px) {
+            section.display .display-products .wrap .item .item-hover span {
+              font-size: 18px; } }
+          @media (max-width: 1366px) {
+            section.display .display-products .wrap .item .item-hover span {
+              font-size: 16px; } }
     section.display .display-products .clothes-pagination {
       padding-top: 20px; }
       section.display .display-products .clothes-pagination ul.pagination li a {

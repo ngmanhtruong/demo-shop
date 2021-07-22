@@ -9956,6 +9956,9 @@ section.clothes-banner {
     @media (max-width: 1600px) {
       section.clothes-banner .desktop-md .background-parallex {
         background-size: 100%; } }
+    @media (max-width: 1366px) {
+      section.clothes-banner .desktop-md .background-parallex {
+        background-size: 150%; } }
     @media (max-width: 1023px) {
       section.clothes-banner .desktop-md .background-parallex {
         background-size: cover; } }
@@ -10178,6 +10181,9 @@ section.electronics-banner {
     @media (max-width: 1600px) {
       section.electronics-banner .background-parallex {
         background-size: 100%; } }
+    @media (max-width: 1366px) {
+      section.electronics-banner .background-parallex {
+        background-size: 150%; } }
     @media (max-width: 1023px) {
       section.electronics-banner .background-parallex {
         background-size: cover; } }

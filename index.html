@@ -733,19 +733,20 @@
         clothParallex = document.querySelector('#clothesParallex');
 
         $(document).ready(function () {
-            if ($(window).width() <= 1600) {
+            if ($(window).width() <= 1600 && $(window).width() >= 1024) {
                 window.addEventListener('scroll', function () {
                     var value = window.scrollY;
+                    //console.log(value);
                     //parallex clothes controls
-                    if (value > 1225 && value < 3035) {
-                        let val = (180 - (value - 1225) * 0.145);
+                    if (value > 1000 && value < 2700) {
+                        let val = (180 - (value - 1000) * 0.16);
                         if (val > -150) {
                             clothParallex.style.backgroundPositionY = "" + val + "%";
                         }
                     }
                     //parallex electronic controls
-                    if (value > 2265 && value < 4030) {
-                        let val = (180 - (value - 2265) * 0.145);
+                    if (value > 2100 && value < 3800) {
+                        let val = (180 - (value - 2100) * 0.16);
                         if (val > -150) {
                             elecParallex.style.backgroundPositionY = "" + val + "%";
                         }
@@ -774,19 +775,19 @@
         });
         
         $(window).resize(function () {
-            if ($(window).width() <= 1600) {
+            if ($(window).width() <= 1600 && $(window).width() >= 1024) {
                 window.addEventListener('scroll', function () {
                     var value = window.scrollY;
                     //parallex clothes controls
-                    if (value > 1225 && value < 3035) {
-                        let val = (180 - (value - 1225) * 0.145);
+                    if (value > 1000 && value < 2700) {
+                        let val = (180 - (value - 1000) * 0.16);
                         if (val > -150) {
                             clothParallex.style.backgroundPositionY = "" + val + "%";
                         }
                     }
                     //parallex electronic controls
-                    if (value > 2265 && value < 4030) {
-                        let val = (180 - (value - 2265) * 0.145);
+                    if (value > 2100 && value < 3800) {
+                        let val = (180 - (value - 2100) * 0.16);
                         if (val > -150) {
                             elecParallex.style.backgroundPositionY = "" + val + "%";
                         }

@@ -4,7 +4,6 @@ var cartData = [];
 productCart = JSON.parse(localStorage["cartData"]);
 
 
-
 function displayCartItems(arr){
     let output = '';
     let index = 0;

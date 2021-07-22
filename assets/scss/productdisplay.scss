@@ -57,6 +57,10 @@ section{
     &.filter{
         width: 30%;
         padding: 0 10px;
+        @include tablet{
+            width: 100%;
+            padding: 0 0 20px 0;
+        }
         .filter-by-category{
             padding-bottom: 10px;
             .wrap{
@@ -112,6 +116,9 @@ section{
                     &.sort-by-price-range{
                         select{
                             background: #f5eec2;
+                            @include laptop{
+                                width: 200px;
+                            }
                             option{
                                 background: #f5eec2;
                                 &:hover{
@@ -143,6 +150,10 @@ section{
         padding: 0 10px;
         font-size: 16px;
         color: #1f1c1c;
+        @include tablet{
+            width: 100%;
+            padding: 0 0 20px 0;
+        }
         .display-which-is-selected{
             padding-bottom: 30px;
             .wrap{
@@ -209,6 +220,14 @@ section{
                     padding-bottom: 40px;
                     position: relative;
                     margin-right: 20px;
+                    @include tablet{
+                        width: calc(33% - 20px);
+                        margin-right: 20px;
+                    }
+                    @include mobile{
+                        width: calc(45% - 10px);
+                        margin-right: 10px;
+                    }
                     &:hover{
                         cursor: pointer;
                         .item-hover{
@@ -232,6 +251,9 @@ section{
                             height: 235px;
                             padding: 0px 30px;
                             margin-bottom: 10px;
+                            @include laptop{
+                                padding: 0;
+                            }
                             a{
                                 height: inherit;
                             }
@@ -245,11 +267,17 @@ section{
                         }
                         .product-description{
                             background-color: $lighter;
-                            height: 120px;
+                            height: 80px;
                             border-radius: 5px;
                             padding: 0px 10px;
                             flex-wrap: wrap;
                             color: #888;
+                            @include laptop{
+                                height: 100px;
+                            }
+                            @include mobile{
+                                height: 80px;
+                            }
                             h3{
                                 font-size: 16px;
                                 text-align: center;
@@ -294,6 +322,9 @@ section{
                         transform: translate(-50%, 0%);
                         z-index: 2;
                         width: 70%;
+                        @include laptop{
+                            width: 80%;
+                        }
                         span{
                             background-color: #f0a04b;
                             color: white;
@@ -305,6 +336,12 @@ section{
                             opacity: 0;
                             transition: all ease 0.5s;
                             text-align: center;
+                            @include desktop{
+                                font-size: 18px;
+                            }
+                            @include laptop{
+                                font-size: 16px;
+                            }
                         }
                     }
                 }

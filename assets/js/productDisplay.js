@@ -23,6 +23,7 @@ function initData(data){
     console.log(products);
     filteredProduct = products;
     //show products by default
+    shortenProductTitles(products);
     displayProducts(products);
 
 
@@ -39,6 +40,75 @@ function getRndInteger() {
         return discount;
     } else{
         return getRndInteger();
+    }
+}
+//SHORTEN PRODUCT TITLE NAMES
+function shortenProductTitles(arr){
+    let re1 = /(Fjallraven)/;
+    let re2 = /(Mens Casual Premium)/;
+    let re3 = /(John Hardy Women's)/;
+    let re4 = /(Pierced Owl Rose)/;
+    let re5 = /(WD 2TB Elements)/;
+    let re6 = /(SSD PLUS 1TB)/;
+    let re7 = /(Silicon Power 256GB SSD)/;
+    let re8 = /(WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive)/;
+    let re9 = /(IPS Ultra-Thin)/;
+    let re10 = /(BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats)/;
+    let re11 = /(Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket)/;
+    let re12 = /(Rain Jacket Women Windbreaker Striped Climbing Raincoats)/;
+    let re13 = /(MBJ Women's Solid Short Sleeve Boat Neck V)/;
+    let re14 = /(DANVOUY Womens T Shirt Casual Cotton Short)/;
+    let re15 = /(Opna Women's Short Sleeve Moisture)/;
+    let re16 = /(144Hz Curved Gaming Monitor)/;
+    for (product of arr){
+        if(re1.test(product.title)){
+            product.title = "Foldsack No.1 Backpack";
+        }
+        if(re2.test(product.title)){
+            product.title = "Mens Casual Premium Fit";
+        }
+        if(re3.test(product.title)){
+            product.title = "Gold & Silver Dragon Bracelet";
+        }
+        if(re4.test(product.title)){
+            product.title = "Stainless Steel Double";
+        }
+        if(re5.test(product.title)){
+            product.title = "WD 2TB HDD - USB3.0";
+        }
+        if(re6.test(product.title)){
+            product.title = "SSD 1TB - SATA 3";
+        }
+        if(re7.test(product.title)){
+            product.title = "SSD 256GB - SATA 3";
+        }
+        if(re8.test(product.title)){
+            product.title = "WD 4TB Work for PS4";
+        }
+        if(re9.test(product.title)){
+            product.title = "Monitor Acer 21.5 FullHD";
+        }
+        if(re10.test(product.title)){
+            product.title = "Snowboard Jacket Coats";
+        }
+        if(re11.test(product.title)){
+            product.title = "Moto Biker Jacket";
+        }
+        if(re12.test(product.title)){
+            product.title = "Women Climbing Raincoats";
+        }
+        if(re13.test(product.title)){
+            product.title = "Short Sleeve Boat Neck";
+        }
+        if(re14.test(product.title)){
+            product.title = "T Shirt Cotton Short";
+        }
+        if(re15.test(product.title)){
+            product.title = "Short Sleeve Moisture";
+        }
+        if(re16.test(product.title)){
+            product.title = "Samsung 144Hz Curved Monitor";
+        }
     }
 }
 
