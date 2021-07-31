@@ -466,20 +466,20 @@ function productClicked(id){
 //CATEGORY DROP DOWN ON CLICK
 $("#clothes").click(function() {
     $('html,body').animate({
-        scrollTop: $("#clothesParallex").offset().top, duration: 1000
-    });
+        scrollTop: $("#clothesParallex").offset().top
+    },'slow');
 });
 
 $("#electronics").click(function() {
     $('html,body').animate({
-        scrollTop: $("#electronicsParallex").offset().top, duration: 1500
-    });
+        scrollTop: $("#electronicsParallex").offset().top
+    },'slow');
 });
 
 $("#jewelry").click(function() {
     $('html,body').animate({
-        scrollTop: $(".jewelry-banner").offset().top, duration: 2000
-    });
+        scrollTop: $(".jewelry-banner").offset().top
+    },'slow');
 });
 
 //MOVE TO CHECKOUT
