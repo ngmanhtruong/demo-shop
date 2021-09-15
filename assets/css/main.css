@@ -8998,6 +8998,20 @@ textarea.form-control-lg {
   font-style: italic;
   font-display: swap; }
 
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
+  background-color: #fff; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  border: solid #fff;
+  background-color: #f0a04b; }
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f5eec2; }
+
 .crimson {
   font-family: CrimsonText; }
 
@@ -9160,7 +9174,9 @@ body {
   letter-spacing: .4px; }
   body img {
     display: block;
-    width: 100%; }
+    width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain; }
   @media (max-width: 1600px) {
     body {
       font-size: 14px; } }

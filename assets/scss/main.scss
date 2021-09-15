@@ -60,6 +60,23 @@
     font-style: italic;
     font-display: swap;
 }
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    border: solid #fff;
+    background-color: #f0a04b;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #f5eec2;
+}
 $crimson: CrimsonText;
 $overlock: Overlock;
 .crimson {
@@ -203,6 +220,7 @@ body{
     img{
         display: block;
         width: 100%;
+        object-fit: contain;
     }
     @include desktop{
         font-size: 14px;
